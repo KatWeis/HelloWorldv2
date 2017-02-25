@@ -1,9 +1,20 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+//use libraries
+using System;
 
 namespace HelloWorldWH
 {
+    //enums
+    public enum GameState
+    {
+        MainMenu,
+        Coding,
+        Game
+    }
+
+
     /// <summary>
     /// This is the main type for your game.
     /// </summary>
@@ -11,6 +22,11 @@ namespace HelloWorldWH
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+
+        //variables
+        GameState gameState;//current mode of the game
+        KeyboardState kbState; //used to get keyboard input
+        KeyboardState preKB; //used to hold input of last keyboard presses
 
         public Game1()
         {
@@ -26,7 +42,9 @@ namespace HelloWorldWH
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
+            //initialize variables
+            gameState = GameState.MainMenu;
+
 
             base.Initialize();
         }
@@ -59,8 +77,50 @@ namespace HelloWorldWH
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
+            //set the last keyboard state equal to preKeyboard
+            preKB = kbState;
+            //set keyboard state to be current state
+            kbState = Keyboard.GetState();
+            Console.WriteLine(gameState);
+            
+
+            //have switch statement to manage gamestate
+            switch(gameState)
+            {
+                case GameState.MainMenu:
+                    {
+                        if(IsKeyPressed(Keys.Enter))
+                        {
+                            gameState = GameState.Game;
+                        }
+                        //closes game if escape key is pressed
+                        if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || IsKeyPressed(Keys.Escape))
+                        {
+                            Exit();
+                        }
+                    }
+                    break;
+                case GameState.Game:
+                    {
+                        if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || IsKeyPressed(Keys.Escape))
+                        {
+                            gameState = GameState.MainMenu;
+                        }
+                        if (IsKeyPressed(Keys.E))
+                        {
+                            gameState = GameState.Coding;
+                        }
+                    }
+                    break;
+                case GameState.Coding:
+                    {
+                        if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || IsKeyPressed(Keys.Escape))
+                        {
+                            gameState = GameState.Game;
+                        }
+                    }
+                    break;
+            }
 
             // TODO: Add your update logic here
 
@@ -78,6 +138,21 @@ namespace HelloWorldWH
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);
+        }
+
+        /// <summary>
+        /// Determines if a key has been pressed once using IsKeyUp on the previous keyboard state and IsKeyDown 
+        /// on the current keyboard state
+        /// </summary>
+        /// <param name="key">key that is being pressed</param>
+        /// <returns>True/false on whether or not the key was pressed this frame</returns>
+        private bool IsKeyPressed(Keys key)
+        {
+            if(preKB.IsKeyUp(key) && kbState.IsKeyDown(key))
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
