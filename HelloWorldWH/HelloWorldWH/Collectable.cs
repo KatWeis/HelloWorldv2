@@ -9,18 +9,11 @@ using Microsoft.Xna.Framework.Input;
 
 namespace HelloWorldWH
 {
-    class Entity
+    class Collectable: Entity
     {
-        // Attributes
-        Rectangle rec;
-        Texture2D texture;
-
-        // constructor
-        public Entity(Rectangle rectangle, Texture2D tex)
+        //constructor
+        public Collectable(Rectangle rec, Texture2D tex):base(rec, tex)
         {
-            rec = rectangle;
-            texture = tex;
         }
-
     }
 }
