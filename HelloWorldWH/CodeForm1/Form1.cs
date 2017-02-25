@@ -36,5 +36,17 @@ namespace CodeForm1
         {
 
         }
+
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            //clear the code input box
+            codeInputBox.Clear();
+        }
+
+        private void codeInputBox_TextChanged(object sender, EventArgs e)
+        {
+            //saves input to a string
+            string codeInput = codeInputBox.ToString();
+        }
     }
 }
