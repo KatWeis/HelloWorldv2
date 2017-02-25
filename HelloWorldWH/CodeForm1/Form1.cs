@@ -19,7 +19,7 @@ namespace CodeForm1
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
