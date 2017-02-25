@@ -28,7 +28,7 @@ namespace HelloWorldWH
         KeyboardState kbState; //used to get keyboard input
         KeyboardState preKB; //used to hold input of last keyboard presses
 
-        Player pl; //player object that the user controls
+        Player player; //player object that the user controls
         Texture2D plText; //texture for the player sprite
 
         public Game1()
@@ -138,7 +138,13 @@ namespace HelloWorldWH
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-
+            spriteBatch.Begin();
+            //PLAYER ANIMATION -- Anna
+            player.Time += (float)gameTime.ElapsedGameTime.TotalSeconds;
+            player.AnimateSetup(1, 288, 350, 8);
+            player.DrawAnimation(kbState, spriteBatch);
+            spriteBatch.End();
+              
             base.Draw(gameTime);
         }
 
