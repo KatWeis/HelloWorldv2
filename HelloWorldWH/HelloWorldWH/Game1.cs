@@ -28,6 +28,9 @@ namespace HelloWorldWH
         KeyboardState kbState; //used to get keyboard input
         KeyboardState preKB; //used to hold input of last keyboard presses
 
+        Player pl; //player object that the user controls
+        Texture2D plText; //texture for the player sprite
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -44,7 +47,6 @@ namespace HelloWorldWH
         {
             //initialize variables
             gameState = GameState.MainMenu;
-
 
             base.Initialize();
         }
