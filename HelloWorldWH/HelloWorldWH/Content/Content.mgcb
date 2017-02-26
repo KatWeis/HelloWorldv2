@@ -25,7 +25,7 @@
 /processorParam:TextureFormat=Compressed
 /build:Arial.spritefont
 
-<<<<<<< HEAD
+
 #begin logo.ico
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -37,13 +37,13 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:logo.ico
-=======
+
 #begin credit_to_TopeconHeroes.mp3
 /importer:WavImporter
 /processor:SongProcessor
 /processorParam:Quality=Best
 /build:credit_to_TopeconHeroes.mp3
->>>>>>> origin/master
+
 
 #begin credit_to_TopeconHeroes.ogg
 /importer:OggImporter
