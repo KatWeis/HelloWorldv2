@@ -36,6 +36,7 @@ namespace HelloWorldWH
         private bool canMove;
         private bool canMoveR;//moving to the right
         private bool canMoveL;//moving to the left
+        private bool jumpEnabled;
 
 
         //properties
@@ -69,6 +70,11 @@ namespace HelloWorldWH
             get { return canMoveL; }
             set { canMoveL = value; }
         }
+        public bool JumpEnabled
+        {
+            get { return jumpEnabled; }
+            set { jumpEnabled = value; }
+        }
 
         //constructor
         public Player(Rectangle rect, Texture2D tex) : base(rect, tex)
@@ -83,6 +89,7 @@ namespace HelloWorldWH
             canMove = false;
             canMoveL = false;
             canMoveR = false;
+            jumpEnabled = false;
         }
 
 
@@ -92,7 +99,7 @@ namespace HelloWorldWH
             float time = (float)gameTime.ElapsedGameTime.TotalSeconds; //maybe not needed 
 
             //If the Space Key is being pressed
-            if (cKey.IsKeyDown(Keys.Space) && canJump == true) //short jump
+            if (cKey.IsKeyDown(Keys.Space) && canJump == true && jumpEnabled == true) //short jump
             {
 
                 isJumping = true; // the player is jumping
@@ -215,7 +222,11 @@ namespace HelloWorldWH
                     if(e is Collectible)
                     {
                         Collectible temp = (Collectible)e;
-                        temp.CollisionResolution(this);
+                        if(temp.IsActive)
+                        {
+                            temp.CollisionResolution(this);
+                        }
+                        
                     }
                     else
                     {

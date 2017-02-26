@@ -216,7 +216,7 @@ namespace HelloWorldWH
                                     player.CanMoveL = true;
                                     break;
                                 case 2:
-                                    form.cs = CodeState.Jump;
+                                    player.JumpEnabled = true;
                                     break;
                                 case 3:
                                     player.ScoreOn = true;
