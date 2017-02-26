@@ -152,13 +152,11 @@ namespace HelloWorldWH
             {
                 if (down == true)
                 {
-                    //sb.Draw(idleTexture, rec, source, Color.White);
-                    sb.Draw(texture, rec, source, Color.White, 0.0f, origin, SpriteEffects.None, 0.0f);
+                    sb.Draw(idleTexture, rec, source, Color.White);        
                 }
                 if (down == false)
                 {
-                    //sb.Draw(idleTexture, rec, source, Color.White, 0.0f, origin, SpriteEffects.FlipHorizontally, 0.0f);
-                    sb.Draw(texture, rec, source, Color.White, 0.0f, origin, SpriteEffects.None, 0.0f);
+                    sb.Draw(idleTexture, rec, source, Color.White, 0.0f, origin, SpriteEffects.FlipHorizontally, 0.0f);
                 }
             }
 
