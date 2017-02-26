@@ -58,9 +58,13 @@ namespace HelloWorldWH
         //textures for other objects
         Texture2D collectible;
         Texture2D menu;
+        Texture2D gameBG;
 
         //windows form
         Form1 form = new Form1();
+
+        //counter to determine which coding state to use
+        int formCount;
 
         public Game1()
         {
@@ -80,6 +84,9 @@ namespace HelloWorldWH
             gameState = GameState.MainMenu;
             generalCollectibles = new Collectible(new Rectangle(200, 150, 50, 50), collectible);
             collects = generalCollectibles.Spawn(GraphicsDevice);
+            //initialize form count to 0
+            formCount = 0;
+
             base.Initialize();
         }
 
@@ -102,10 +109,11 @@ namespace HelloWorldWH
             font = Content.Load<SpriteFont>("Arial");
             
             //load in menu asset
-            collectible = Content.Load<Texture2D>("eat_me");
+            collectible = Content.Load<Texture2D>("eateat");
 
             //load in collectible asset
             menu = Content.Load<Texture2D>("logo.png");
+            gameBG = Content.Load<Texture2D>("stage.png");
 
             //music
             music = Content.Load<Song>("credit_to_TopeconHeroes.ogg");
@@ -167,6 +175,18 @@ namespace HelloWorldWH
                         if (IsKeyPressed(Keys.E))
                         {
                             gameState = GameState.Coding;
+                            //pick the coding state of the form
+                            switch(formCount)
+                            {
+                                case 0: form.cs = CodeState.Right;
+                                    break;
+                                case 1: form.cs = CodeState.Left;
+                                    break;
+                                case 2: form.cs = CodeState.Jump;
+                                    break;
+                                case 3: form.cs = CodeState.Collect;
+                                    break;
+                            }
                             form = new Form1();
                             form.Visible = true;
                         }
@@ -177,10 +197,14 @@ namespace HelloWorldWH
                         
                         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || IsKeyPressed(Keys.Escape))
                         {
+                            //activated when returning to game version
                             form.Visible = false;
                             gameState = GameState.Game;
                             player.ScoreOn = true;
                             player.CanMove = true;
+
+                            //increment form counter so next time it is the next coding challenge
+                            formCount++;
                         }
                     }
                     break;
@@ -201,16 +225,7 @@ namespace HelloWorldWH
 
             spriteBatch.Begin();
 
-            //PLAYER ANIMATION -- Anna
-            player.Time += (float)gameTime.ElapsedGameTime.TotalSeconds;
-            player.AnimateSetup(1, 502, 629, 6);
-            player.DrawAnimation(kbState, spriteBatch);
-
-            //draw text if the user has unlocked score
-            if(player.ScoreOn)
-            {
-                spriteBatch.DrawString(font, "Score: " + player.Score, new Vector2(20, 20), Color.White);
-            }
+            
 
             //have switch statement to manage gamestate
             switch (gameState)
@@ -223,9 +238,24 @@ namespace HelloWorldWH
                     break;
                 case GameState.Game:
                     {
+                        //draw BG
+                        spriteBatch.Draw(gameBG, new Rectangle(-40, -15, 880, 520), Color.White);
+
+                        //draw collectibles
                         foreach (Collectible col in collects)
                         {
                             spriteBatch.Draw(collectible, col.Rec, Color.White);
+                        }
+                        
+                        //PLAYER ANIMATION -- Anna
+                        player.Time += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        player.AnimateSetup(1, 502, 629, 6);
+                        player.DrawAnimation(kbState, spriteBatch);
+
+                        //draw text if the user has unlocked score
+                        if (player.ScoreOn)
+                        {
+                            spriteBatch.DrawString(font, "Score: " + player.Score, new Vector2(20, 20), Color.White);
                         }
                     }
                     break;
