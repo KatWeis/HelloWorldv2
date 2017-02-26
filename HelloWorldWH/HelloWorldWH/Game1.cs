@@ -273,9 +273,12 @@ namespace HelloWorldWH
                                 col.CurCol = Color.White;
                                 //set active
                                 col.IsActive = true;
-                                first = false;
                             }
                             spriteBatch.Draw(collectible, col.Rec, col.CurCol);
+                        }
+                        if(first == true)
+                        {
+                            first = false;
                         }
                         
                         //PLAYER ANIMATION -- Anna
