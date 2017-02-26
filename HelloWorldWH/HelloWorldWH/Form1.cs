@@ -56,7 +56,7 @@ namespace HelloWorldWH
                 case CodeState.Jump:
                     {
                         userPrompt.Text = jump;
-                        codeInputText.Text = "robot.Jump =";
+                        codeInputText.Text = "robot.jump =";
                     }
                     break;
                 case CodeState.Collect:
