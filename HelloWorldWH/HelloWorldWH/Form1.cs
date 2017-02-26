@@ -43,25 +43,31 @@ namespace HelloWorldWH
             {
                 case CodeState.Right:
                     {
-                        userPrompt.Text = right;
+                        userPrompt.Text += "*Help Ace move right using the following code*";
+
+                        userPrompt.Text += Environment.NewLine + right;
+                      
                         codeInputText.Text = "robot.moveRight =";
                     }
                     break;
                 case CodeState.Left:
                     {
-                        userPrompt.Text = left;
+                        userPrompt.Text += "*Help Ace walk left*";
+                        userPrompt.Text += Environment.NewLine + left;
                         codeInputText.Text = "robot.moveLeft =";
                     }
                     break;
                 case CodeState.Jump:
                     {
-                        userPrompt.Text = jump;
+                        userPrompt.Text += "*Ace's legs are a bit rusty. Can you help him jump?*";
+                        userPrompt.Text += Environment.NewLine + jump;
                         codeInputText.Text = "robot.jump =";
                     }
                     break;
                 case CodeState.Collect:
                     {
-                        userPrompt.Text = collect;
+                        userPrompt.Text += "*Ace needs your help to pick up the orbs!*";
+                        userPrompt.Text += Environment.NewLine + collect;
                         codeInputText.Text = "collectable";
                     }
                     break;
