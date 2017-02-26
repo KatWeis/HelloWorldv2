@@ -92,9 +92,9 @@ namespace HelloWorldWH
             font = Content.Load<SpriteFont>("Arial");
 
             //load in music
-            music = Content.Load<Song>("credit_to_TopeconHeroes.ogg");
-            MediaPlayer.Play(music);
-            MediaPlayer.IsRepeating = true;
+            //music = Content.Load<Song>("credit_to_TopeconHeroes.ogg");
+            //MediaPlayer.Play(music);
+            //MediaPlayer.IsRepeating = true;
 
             //load in menu asset
             collectible = Content.Load<Texture2D>("eat_me");
