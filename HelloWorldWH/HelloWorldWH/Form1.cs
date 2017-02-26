@@ -31,7 +31,7 @@ namespace HelloWorldWH
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            //this.BackColor = System.Drawing.Color.Black;
         }
 
         // have the clear button clear the input from the codeInput field
@@ -44,6 +44,7 @@ namespace HelloWorldWH
         // have this button change the color of the background of the GUI
         private void colorChangeButton_Click(object sender, EventArgs e)
         {
+            /*
             //randomly change the background color of the GUI
 
             //create a random number generator
@@ -77,6 +78,7 @@ namespace HelloWorldWH
                     this.BackColor = System.Drawing.Color.White;
                     break;
             }
+            */
         }
 
         //have the user manually change the text on the screen

@@ -40,26 +40,31 @@
             // 
             // submitButton
             // 
+            this.submitButton.BackColor = System.Drawing.Color.AliceBlue;
+            this.submitButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.submitButton.Location = new System.Drawing.Point(766, 805);
             this.submitButton.Name = "submitButton";
             this.submitButton.Size = new System.Drawing.Size(153, 70);
             this.submitButton.TabIndex = 0;
             this.submitButton.Text = "Submit";
-            this.submitButton.UseVisualStyleBackColor = true;
+            this.submitButton.UseVisualStyleBackColor = false;
             this.submitButton.Click += new System.EventHandler(this.submitButton_Click);
             // 
             // clearButton
             // 
+            this.clearButton.BackColor = System.Drawing.Color.AliceBlue;
+            this.clearButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.clearButton.Location = new System.Drawing.Point(44, 805);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(153, 70);
             this.clearButton.TabIndex = 1;
             this.clearButton.Text = "Clear";
-            this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.UseVisualStyleBackColor = false;
             this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
             // codeInputText
             // 
+            this.codeInputText.ForeColor = System.Drawing.Color.PaleGreen;
             this.codeInputText.Location = new System.Drawing.Point(44, 256);
             this.codeInputText.Name = "codeInputText";
             this.codeInputText.Size = new System.Drawing.Size(876, 506);
@@ -70,6 +75,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.AliceBlue;
             this.label1.Location = new System.Drawing.Point(39, 203);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(194, 25);
@@ -78,12 +84,14 @@
             // 
             // hintButton
             // 
+            this.hintButton.BackColor = System.Drawing.Color.AliceBlue;
+            this.hintButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.hintButton.Location = new System.Drawing.Point(766, 91);
             this.hintButton.Name = "hintButton";
             this.hintButton.Size = new System.Drawing.Size(153, 70);
             this.hintButton.TabIndex = 4;
             this.hintButton.Text = "Hint";
-            this.hintButton.UseVisualStyleBackColor = true;
+            this.hintButton.UseVisualStyleBackColor = false;
             // 
             // userPrompt
             // 
@@ -97,6 +105,7 @@
             // promptLabel
             // 
             this.promptLabel.AutoSize = true;
+            this.promptLabel.ForeColor = System.Drawing.Color.AliceBlue;
             this.promptLabel.Location = new System.Drawing.Point(39, 31);
             this.promptLabel.Name = "promptLabel";
             this.promptLabel.Size = new System.Drawing.Size(137, 25);
@@ -105,18 +114,21 @@
             // 
             // colorChangeButton
             // 
+            this.colorChangeButton.BackColor = System.Drawing.Color.AliceBlue;
+            this.colorChangeButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.colorChangeButton.Location = new System.Drawing.Point(398, 805);
             this.colorChangeButton.Name = "colorChangeButton";
             this.colorChangeButton.Size = new System.Drawing.Size(153, 70);
             this.colorChangeButton.TabIndex = 7;
             this.colorChangeButton.Text = "Change Color";
-            this.colorChangeButton.UseVisualStyleBackColor = true;
+            this.colorChangeButton.UseVisualStyleBackColor = false;
             this.colorChangeButton.Click += new System.EventHandler(this.colorChangeButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.SlateGray;
             this.ClientSize = new System.Drawing.Size(974, 930);
             this.Controls.Add(this.colorChangeButton);
             this.Controls.Add(this.promptLabel);
@@ -126,6 +138,7 @@
             this.Controls.Add(this.codeInputText);
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.submitButton);
+            this.ForeColor = System.Drawing.SystemColors.Control;
             this.Name = "Form1";
             this.Text = "Console Window";
             this.Load += new System.EventHandler(this.Form1_Load);
