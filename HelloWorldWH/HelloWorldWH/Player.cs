@@ -128,7 +128,7 @@ namespace HelloWorldWH
             }
         }
 
-        public void PlayerUpdate(List<Entity> stuff, KeyboardState kbState, KeyboardState preKB, GameTime gTime)
+        public void PlayerUpdate(List<Entity> stuff, KeyboardState kbState, KeyboardState preKB, GameTime gTime, GraphicsDevice gd)
         {
             //player movement
             if(kbState.IsKeyDown(Keys.D) || kbState.IsKeyDown(Keys.Right))
@@ -138,6 +138,15 @@ namespace HelloWorldWH
             if(kbState.IsKeyDown(Keys.A) || kbState.IsKeyDown(Keys.Left))
             {
                 rec.X -= 5;
+            }
+            //vertical screep wrap
+            if(rec.X >= gd.Viewport.Width)
+            {
+                rec.X = -90;
+            }
+            if (rec.X <= -100)
+            {
+                rec.X = (int)gd.Viewport.Width;
             }
             //jump
             Jump(gTime, kbState, preKB);
