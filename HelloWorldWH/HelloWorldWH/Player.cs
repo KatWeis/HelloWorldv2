@@ -62,7 +62,7 @@ namespace HelloWorldWH
             {
 
                 isJumping = true; // the player is jumping
-                velocityY = -7;  // the player moves up (Note: The origin (0,0) is in the UPPER LEFT corner of the screen, which is why our velocity is a negative number)
+                velocityY = -8;  // the player moves up (Note: The origin (0,0) is in the UPPER LEFT corner of the screen, which is why our velocity is a negative number)
                 canJump = false; // if a player is already jumping, should they be able to jump again?
             }
 
@@ -180,7 +180,8 @@ namespace HelloWorldWH
                 {
                     if(e is Collectable)
                     {
-                        //call some method to react to colliding with the collectable
+                        Collectable temp = (Collectable)e;
+                        temp.CollisionResolution(this);
                     }
                     else
                     {
