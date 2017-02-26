@@ -33,7 +33,6 @@ namespace HelloWorldWH
         Texture2D playerIdle; //texture for idle player
         Texture2D playerText; //texture for moving player sprite
 
-        Form1 form = new Form1();
 
         SpriteFont font;
 
