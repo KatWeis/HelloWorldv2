@@ -39,6 +39,11 @@ namespace HelloWorldWH
             get { return score; }
             set { score = value; }
         }
+        public bool ScoreOn
+        {
+            get { return scoreOn; }
+            set { scoreOn = value; }
+        }
 
         //constructor
         public Player(Rectangle rect, Texture2D tex) : base(rect, tex)

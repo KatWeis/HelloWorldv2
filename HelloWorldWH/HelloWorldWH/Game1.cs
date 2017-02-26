@@ -32,7 +32,11 @@ namespace HelloWorldWH
         Player player; //player object that the user controls
         Texture2D playerIdle; //texture for idle player
         Texture2D playerText; //texture for moving player sprite
-        Form1 form = new Form1();
+
+        SpriteFont font;
+
+        Texture2D collectible;
+        Texture2D menu;
 
 
         public Game1()
@@ -69,7 +73,14 @@ namespace HelloWorldWH
             player = new Player(new Rectangle(0, 0, 150, 200), playerText);
             player.Idle = playerIdle;
 
-            // TODO: use this.Content to load your game content here
+            //font for score
+            font = Content.Load<SpriteFont>("Arial");
+            
+            //load in menu asset
+            collectible = Content.Load<Texture2D>("eat_me");
+
+            //load in collectible asset
+            menu = Content.Load<Texture2D>("logo");
         }
 
         /// <summary>
@@ -126,11 +137,10 @@ namespace HelloWorldWH
                     break;
                 case GameState.Coding:
                     {
-                        form.Show();
                         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || IsKeyPressed(Keys.Escape))
                         {
                             gameState = GameState.Game;
-                            
+                            player.ScoreOn = true;
                         }
                     }
                     break;
@@ -155,6 +165,32 @@ namespace HelloWorldWH
             player.Time += (float)gameTime.ElapsedGameTime.TotalSeconds;
             player.AnimateSetup(1, 502, 629, 6);
             player.DrawAnimation(kbState, spriteBatch);
+            //draw text if the user has unlocked score
+            if(player.ScoreOn)
+            {
+                spriteBatch.DrawString(font, "Score: " + player.Score, new Vector2(20, 20), Color.White);
+            }
+
+            //have switch statement to manage gamestate
+            switch (gameState)
+            {
+                case GameState.MainMenu:
+                    {
+                        spriteBatch.Draw(menu, new Rectangle(-40, -15, 880, 520), Color.White);
+                    }
+                    break;
+                case GameState.Game:
+                    {
+                        
+                    }
+                    break;
+                case GameState.Coding:
+                    {
+                        spriteBatch.Draw(menu, new Rectangle(-40, -15, 880, 520), Color.Black);
+                    }
+                    break;
+            }
+
             spriteBatch.End();
               
             base.Draw(gameTime);
