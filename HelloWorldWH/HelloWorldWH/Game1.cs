@@ -111,8 +111,7 @@ namespace HelloWorldWH
                     break;
                 case GameState.Game:
                     {
-                        player.PlayerUpdate(new List<Entity>(), gameTime, kbState, preKB);
-                        Console.WriteLine(player.Rec.Y);
+                        player.PlayerUpdate(new List<Entity>(), kbState, preKB, gameTime);
                         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || IsKeyPressed(Keys.Escape))
                         {
                             gameState = GameState.MainMenu;
