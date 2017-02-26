@@ -35,7 +35,6 @@
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.promptLabel = new System.Windows.Forms.Label();
             this.inputCode = new System.Windows.Forms.RichTextBox();
-            this.promptText = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // submitButton
@@ -87,7 +86,7 @@
             // promptLabel
             // 
             this.promptLabel.AutoSize = true;
-            this.promptLabel.Location = new System.Drawing.Point(74, 50);
+            this.promptLabel.Location = new System.Drawing.Point(122, 130);
             this.promptLabel.Name = "promptLabel";
             this.promptLabel.Size = new System.Drawing.Size(86, 25);
             this.promptLabel.TabIndex = 6;
@@ -103,21 +102,11 @@
             this.inputCode.Text = "";
             this.inputCode.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
-            // promptText
-            // 
-            this.promptText.Location = new System.Drawing.Point(79, 98);
-            this.promptText.Name = "promptText";
-            this.promptText.Size = new System.Drawing.Size(669, 135);
-            this.promptText.TabIndex = 9;
-            this.promptText.Text = "";
-            this.promptText.TextChanged += new System.EventHandler(this.promptText_TextChanged);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 1121);
-            this.Controls.Add(this.promptText);
             this.Controls.Add(this.inputCode);
             this.Controls.Add(this.promptLabel);
             this.Controls.Add(this.progressBar);
@@ -141,7 +130,6 @@
         private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.Label promptLabel;
         private System.Windows.Forms.RichTextBox inputCode;
-        private System.Windows.Forms.RichTextBox promptText;
     }
 }
 

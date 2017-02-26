@@ -80,7 +80,7 @@ namespace CodeForm1
         //prompt label
         private void label2_Click(object sender, EventArgs e)
         {
-            //promptLabel.ForeColor = System.Drawing.Color.DarkGreen;
+            promptLabel.Text = "KEYBOARD (Right/Left) " + Environment.NewLine + " Check for left/right keyboard input. " + Environment.NewLine + " Get the current keyboard state: " + Environment.NewLine + " Use  KeyboardState kbState = Keyboard.GetState()";
         }
 
         //called inputChange
@@ -99,7 +99,7 @@ namespace CodeForm1
         //changes the prompt text 
         private void promptText_TextChanged(object sender, EventArgs e)
         {
-            promptText.Text = "KEYBOARD (Right/Left) " + Environment.NewLine + " Check for left/right keyboard input. " + Environment.NewLine + " Get the current keyboard state: " + Environment.NewLine + " Use  KeyboardState kbState = Keyboard.GetState()";
+            //promptText.Text = "KEYBOARD (Right/Left) " + Environment.NewLine + " Check for left/right keyboard input. " + Environment.NewLine + " Get the current keyboard state: " + Environment.NewLine + " Use  KeyboardState kbState = Keyboard.GetState()";
         }
     }
 }
