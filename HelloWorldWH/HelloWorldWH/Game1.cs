@@ -279,7 +279,7 @@ namespace HelloWorldWH
                 case GameState.Coding:
                     {
                         spriteBatch.Draw(menu, new Rectangle(-40, -15, 880, 520), Color.Black);
-                        spriteBatch.DrawString(font, "Press esc to exit the console", new Vector2(280, 430), Color.PaleTurquoise);
+                        spriteBatch.DrawString(font, "Press esc to exit the console", new Vector2(260, 430), Color.SeaGreen);
                     }
                     break;
             }

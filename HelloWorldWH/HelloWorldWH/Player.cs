@@ -237,7 +237,8 @@ namespace HelloWorldWH
 
             //resting animation
             if (((ck.IsKeyUp(Keys.D) && ck.IsKeyUp(Keys.Right)) && (ck.IsKeyUp(Keys.A) && ck.IsKeyUp(Keys.Left)))
-                || ((ck.IsKeyDown(Keys.D) && ck.IsKeyDown(Keys.A)) || (ck.IsKeyDown(Keys.Right) && ck.IsKeyDown(Keys.Left))) || canMove == false)
+                || ((ck.IsKeyDown(Keys.D) && ck.IsKeyDown(Keys.A)) || (ck.IsKeyDown(Keys.Right) && ck.IsKeyDown(Keys.Left))) || canMove == false
+                || ((ck.IsKeyDown(Keys.A) || ck.IsKeyDown(Keys.Left)) && CanMoveL == false))
             {
                 if (down == true)
                 {
