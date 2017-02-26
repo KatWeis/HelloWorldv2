@@ -99,9 +99,9 @@ namespace HelloWorldWH
             menu = Content.Load<Texture2D>("logo.png");
 
             //music
-            music = Content.Load<Song>("credit_to_TopeconHeroes.ogg");
-            MediaPlayer.Play(music);
-            MediaPlayer.IsRepeating = true;
+            //music = Content.Load<Song>("credit_to_TopeconHeroes.ogg");
+            //MediaPlayer.Play(music);
+            //MediaPlayer.IsRepeating = true;
         }
 
         /// <summary>
