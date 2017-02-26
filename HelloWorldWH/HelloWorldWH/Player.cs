@@ -11,19 +11,24 @@ namespace HelloWorldWH
 {
     class Player : Entity
     {
-        //variables
+        //fields
         private const float GRAVITY = 9.8f;
         private float velocityY; // upward velocity of the player
+
         //booleans to do with jumping
         private bool isJumping;
         private bool canJump;
+
         //variable for Y before jumping
         private int startingY; // <-- might not need that (Catherine)
+
         //animation attributes -- Anna
         bool down = true; //tracks last key pressed to determine which directional rest animation to use
+
         Texture2D idleTexture;
         //variable to keep track of score
         private int score;
+
         //bool about whether or not score is enabled
         private bool scoreOn;
 
