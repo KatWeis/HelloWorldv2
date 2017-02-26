@@ -33,6 +33,8 @@
             this.codeInputText = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.hintButton = new System.Windows.Forms.Button();
+            this.userPrompt = new System.Windows.Forms.TextBox();
+            this.promptLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // submitButton
@@ -64,7 +66,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(39, 193);
+            this.label1.Location = new System.Drawing.Point(39, 203);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(194, 25);
             this.label1.TabIndex = 3;
@@ -72,18 +74,38 @@
             // 
             // hintButton
             // 
-            this.hintButton.Location = new System.Drawing.Point(766, 83);
+            this.hintButton.Location = new System.Drawing.Point(766, 90);
             this.hintButton.Name = "hintButton";
             this.hintButton.Size = new System.Drawing.Size(153, 70);
             this.hintButton.TabIndex = 4;
             this.hintButton.Text = "Hint";
             this.hintButton.UseVisualStyleBackColor = true;
             // 
+            // userPrompt
+            // 
+            this.userPrompt.Location = new System.Drawing.Point(44, 71);
+            this.userPrompt.Multiline = true;
+            this.userPrompt.Name = "userPrompt";
+            this.userPrompt.ReadOnly = true;
+            this.userPrompt.Size = new System.Drawing.Size(702, 108);
+            this.userPrompt.TabIndex = 5;
+            // 
+            // promptLabel
+            // 
+            this.promptLabel.AutoSize = true;
+            this.promptLabel.Location = new System.Drawing.Point(39, 31);
+            this.promptLabel.Name = "promptLabel";
+            this.promptLabel.Size = new System.Drawing.Size(137, 25);
+            this.promptLabel.TabIndex = 6;
+            this.promptLabel.Text = "User Prompt:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(974, 929);
+            this.Controls.Add(this.promptLabel);
+            this.Controls.Add(this.userPrompt);
             this.Controls.Add(this.hintButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.codeInputText);
@@ -103,5 +125,7 @@
         private System.Windows.Forms.RichTextBox codeInputText;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button hintButton;
+        private System.Windows.Forms.TextBox userPrompt;
+        private System.Windows.Forms.Label promptLabel;
     }
 }
