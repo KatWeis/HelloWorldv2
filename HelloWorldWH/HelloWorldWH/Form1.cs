@@ -141,6 +141,7 @@ namespace HelloWorldWH
 
         private void submitButton_Click(object sender, EventArgs e)
         {
+            //userInput = codeInputText.Text;
             //if the text is null
             if (string.IsNullOrEmpty(codeInputText.Text))
             {
@@ -190,6 +191,8 @@ namespace HelloWorldWH
                     break;
                 case CodeState.Left:
                     {
+                        left = left.Replace(" ", string.Empty);
+                        left.ToUpper();
                         if (input == left)
                         {
                             return true;
@@ -202,6 +205,8 @@ namespace HelloWorldWH
                     break;
                 case CodeState.Jump:
                     {
+                        jump = jump.Replace(" ", string.Empty);
+                        jump.ToUpper();
                         if (input == jump)
                         {
                             return true;
@@ -214,6 +219,8 @@ namespace HelloWorldWH
                     break;
                 case CodeState.Collect:
                     {
+                        collect = collect.Replace(" ", string.Empty);
+                        collect.ToUpper();
                         if (input == left)
                         {
                             return true;
