@@ -56,6 +56,7 @@
             this.clearButton.TabIndex = 1;
             this.clearButton.Text = "Clear";
             this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
             // codeInputBox
             // 
@@ -64,6 +65,7 @@
             this.codeInputBox.Name = "codeInputBox";
             this.codeInputBox.Size = new System.Drawing.Size(902, 617);
             this.codeInputBox.TabIndex = 2;
+            this.codeInputBox.TextChanged += new System.EventHandler(this.codeInputBox_TextChanged);
             // 
             // label1
             // 

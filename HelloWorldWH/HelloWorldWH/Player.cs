@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace HelloWorldWH
 {
-    class Player: Entity
+    class Player : Entity
     {
         //variables
         private const float GRAVITY = 9.8f;
@@ -18,9 +18,18 @@ namespace HelloWorldWH
         private bool canJump;
         //variable for Y before jumping
         private int startingY; 
+        //animation attributes -- Anna
+        bool down = true; //tracks last key pressed to determine which directional rest animation to use
+        Texture2D idleTexture;
+        //properties
+        public Texture2D Idle
+        {
+            get { return idleTexture; }
+            set { idleTexture = value; }
+        }
 
         //constructor
-        public Player(Rectangle rec, Texture2D tex):base(rec, tex)
+        public Player(Rectangle rect, Texture2D tex) : base(rect, tex)
         {
             //initialize jumping bools
             isJumping = false;
@@ -106,5 +115,44 @@ namespace HelloWorldWH
             }
             
         }
+
+        //override drawAnimation method -- Anna
+        public override void DrawAnimation(KeyboardState ck, SpriteBatch sb)
+        {
+            base.DrawAnimation(ck, sb);
+            //calc source rectangle of the current frame
+            source = new Rectangle(frameIndex * frameWidth, 0, frameWidth, frameHeight);
+            //vector to draw to screen                    
+            origin = new Vector2(0f, 0f);
+            //walk cycle right
+            if (ck.IsKeyDown(Keys.D))
+            {
+                sb.Draw(texture, rec, source, Color.White, 0.0f, origin, SpriteEffects.None, 0.0f);
+                down = true;
+            }
+            //walk cycle left
+            if (ck.IsKeyDown(Keys.A))
+            {
+                sb.Draw(texture, rec, source, Color.White, 0.0f, origin, SpriteEffects.FlipHorizontally, 0.0f);
+                down = false;
+            }
+            //resting animation
+            if (ck.IsKeyUp(Keys.D) && (ck.IsKeyUp(Keys.A)))
+            {
+                if (down == true)
+                {
+                    //sb.Draw(idleTexture, rec, source, Color.White);
+                    sb.Draw(texture, rec, source, Color.White, 0.0f, origin, SpriteEffects.None, 0.0f);
+                }
+                if (down == false)
+                {
+                    //sb.Draw(idleTexture, rec, source, Color.White, 0.0f, origin, SpriteEffects.FlipHorizontally, 0.0f);
+                    sb.Draw(texture, rec, source, Color.White, 0.0f, origin, SpriteEffects.None, 0.0f);
+                }
+            }
+
+
+        }
     }
 }
+
