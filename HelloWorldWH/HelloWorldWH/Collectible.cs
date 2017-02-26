@@ -9,12 +9,11 @@ using Microsoft.Xna.Framework.Input;
 
 namespace HelloWorldWH
 {
-    class Collectable: Entity
+    class Collectible: Entity
     {
         //variables
         private bool isActive;//determines if the collectable has been collected or not
         private Random rgen;
-        private List<Collectable> collects;
          
         //properties
         public bool IsActive
@@ -24,18 +23,18 @@ namespace HelloWorldWH
         }
 
         //constructor
-        public Collectable(Rectangle rec, Texture2D tex):base(rec, tex)
+        public Collectible(Rectangle rec, Texture2D tex):base(rec, tex)
         {
-            isActive = false;
+            isActive = true;
             rgen = new Random();
         }
 
-        public List<Collectable> Spawn(GraphicsDevice view)
+        public List<Collectible> Spawn(GraphicsDevice view)
         {
-            List<Collectable> collects = new List<Collectable>(rgen.Next(2, 9));
+            List<Collectible> collects = new List<Collectible>(rgen.Next(3, 9));
 
             // create some local variables
-            Collectable col;
+            Collectible col;
             int windowW = view.Viewport.Width;
             int windowH = view.Viewport.Height;
 
@@ -43,7 +42,7 @@ namespace HelloWorldWH
             {
                 int x = rgen.Next(10, windowW - 80);
                 int y = rgen.Next(10, windowH - 80);
-                col = new Collectable(new Rectangle(x, y, 100, 100), texture);
+                col = new Collectible(new Rectangle(x, y, 100, 100), texture);
                 collects.Add(col);
             }
             return collects;
@@ -52,7 +51,8 @@ namespace HelloWorldWH
         public void CollisionResolution(Player pl)
         {
             if(isActive == true)
-            {
+             {
+                isActive = false;
                 pl.Score += 10;
             }
         }

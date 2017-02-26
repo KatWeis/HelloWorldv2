@@ -149,7 +149,7 @@ namespace HelloWorldWH
             }
         }
 
-        public void PlayerUpdate(List<Entity> stuff, KeyboardState kbState, KeyboardState preKB, GameTime gTime, GraphicsDevice gd)
+        public void PlayerUpdate(List<Collectible> stuff, KeyboardState kbState, KeyboardState preKB, GameTime gTime, GraphicsDevice gd)
         {
             //player movement
             if(kbState.IsKeyDown(Keys.D) || kbState.IsKeyDown(Keys.Right))
@@ -188,9 +188,9 @@ namespace HelloWorldWH
                 //colliding with platforms
                 if (CollisionDetection(e) == true)
                 {
-                    if(e is Collectable)
+                    if(e is Collectible)
                     {
-                        Collectable temp = (Collectable)e;
+                        Collectible temp = (Collectible)e;
                         temp.CollisionResolution(this);
                     }
                     else

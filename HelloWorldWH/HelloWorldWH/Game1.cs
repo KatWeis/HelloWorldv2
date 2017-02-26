@@ -33,6 +33,8 @@ namespace HelloWorldWH
         Texture2D playerIdle; //texture for idle player
         Texture2D playerText; //texture for moving player sprite
 
+        Collectible generalCollectibles;
+        List<Collectible> collects;
 
         SpriteFont font;
 
@@ -57,6 +59,8 @@ namespace HelloWorldWH
         {
             //initialize variables
             gameState = GameState.MainMenu;
+            generalCollectibles = new Collectible(new Rectangle(200, 150, 50, 50), collectible);
+            collects = generalCollectibles.Spawn(GraphicsDevice);
             base.Initialize();
         }
 
@@ -126,8 +130,9 @@ namespace HelloWorldWH
                     break;
                 case GameState.Game:
                     {
-                        player.PlayerUpdate(new List<Entity>(), kbState, preKB, gameTime, GraphicsDevice);
-                        if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || IsKeyPressed(Keys.Escape))
+                        player.PlayerUpdate(collects, kbState, preKB, gameTime, GraphicsDevice);
+                        
+                        if(GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || IsKeyPressed(Keys.Escape))
                         {
                             gameState = GameState.MainMenu;
                         }
@@ -165,12 +170,13 @@ namespace HelloWorldWH
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
             spriteBatch.Begin();
+
             //PLAYER ANIMATION -- Anna
             player.Time += (float)gameTime.ElapsedGameTime.TotalSeconds;
             player.AnimateSetup(1, 502, 629, 6);
             player.DrawAnimation(kbState, spriteBatch);
+
             //draw text if the user has unlocked score
             if(player.ScoreOn)
             {
@@ -188,7 +194,10 @@ namespace HelloWorldWH
                     break;
                 case GameState.Game:
                     {
-                        
+                        foreach (Collectible col in collects)
+                        {
+                            spriteBatch.Draw(collectible, col.Rec, Color.White);
+                        }
                     }
                     break;
                 case GameState.Coding:
