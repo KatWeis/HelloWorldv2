@@ -178,10 +178,10 @@ namespace HelloWorldWH
                             //pick the coding state of the form
 
                             switch(formCount)
-                            {
-                                case 0: form.cs = CodeState.Right;
+                            {   
+                                case 0: form.cs = CodeState.Right;                           
                                     break;
-                                case 1: form.cs = CodeState.Left;
+                                case 1: form.cs = CodeState.Left;                           
                                     break;
                                 case 2: form.cs = CodeState.Jump;
                                     break;
@@ -279,8 +279,7 @@ namespace HelloWorldWH
                         switch (form.cs)
                         {
                             case CodeState.Right:
-                                spriteBatch.DrawString(font, "Hello, World! I am an Algorithmic Coding Education Device, \n but you can call me Ace.", new Vector2(50, GraphicsDevice.Viewport.Height/2), Color.White);
-                                
+                                spriteBatch.DrawString(font, "Hello, World! I am an Algorithmic Coding Education Device, \n but you can call me Ace. \nIt appears my movement code has been altered. \nI need your help to move RIGHT. \n Press E to open my terminal...", new Vector2(50, GraphicsDevice.Viewport.Height/2), Color.White);                        
                                 break;
                             case CodeState.Left:
                                 spriteBatch.DrawString(font, "Thanks friend! Now can you help me move left? Press E to open my terminal.", new Vector2(50, GraphicsDevice.Viewport.Height / 2), Color.White);

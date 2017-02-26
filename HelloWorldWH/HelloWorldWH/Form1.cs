@@ -20,7 +20,7 @@ namespace HelloWorldWH
         string right = "robot.moveRight = D;";
         string left= "robot.moveLeft = A;";
         string jump = "robot.jump = SPACEBAR;";
-        string collect = "collectable += 1;";
+        string collect = "collectable.add;";
 
         //accessor
         public CodeState cs
@@ -56,13 +56,13 @@ namespace HelloWorldWH
                 case CodeState.Jump:
                     {
                         userPrompt.Text = jump;
-                        codeInputText.Text = "robot.Jump =";
+                        codeInputText.Text = "robot.jump =";
                     }
                     break;
                 case CodeState.Collect:
                     {
                         userPrompt.Text = collect;
-                        codeInputText.Text = "collectable +=";
+                        codeInputText.Text = "collectable";
                     }
                     break;
             }
@@ -219,10 +219,10 @@ namespace HelloWorldWH
                     }
                     break;
                 case CodeState.Collect:
-                    {
+                    {         
                         collect = collect.Replace(" ", string.Empty);
                         collect.ToUpper();
-                        if (input == left)
+                        if (input == collect)
                         {
                             return true;
                         }
