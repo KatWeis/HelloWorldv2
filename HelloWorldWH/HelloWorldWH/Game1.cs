@@ -299,7 +299,7 @@ namespace HelloWorldWH
                                 spriteBatch.DrawString(font, "I can walk again! I'm so happy I could jump for joy! Oh wait... \nhuman, I must ask for your help once again.", new Vector2(50, GraphicsDevice.Viewport.Height / 2), Color.White);
                                 break;
                             case CodeState.Jump:
-                                spriteBatch.DrawString(font, "Thank you, friend! \nLook at these orbs, sadly I cannot pick them up. \nPerhaps you can take a look at my terminal again?", new Vector2(50, GraphicsDevice.Viewport.Height / 2), Color.White);
+                                spriteBatch.DrawString(font, "Thank you, friend! \nI need some way to pick up objects. \nPerhaps you can take a look at my terminal again?", new Vector2(50, GraphicsDevice.Viewport.Height / 2), Color.White);
                                 break;
                             case CodeState.Collect:
                                 
