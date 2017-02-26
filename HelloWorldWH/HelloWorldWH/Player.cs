@@ -50,9 +50,9 @@ namespace HelloWorldWH
             if (cKey.IsKeyDown(Keys.Space)) //short jump
             {
 
-                isJumping = true; // the player is jumping
-                velocityY = -7;  // the player moves up (Note: The origin (0,0) is in the UPPER LEFT corner of the screen, which is why our velocity is a negative number)
-                canJump = false; // if a player is already jumping, should they be able to jump again?
+                isJumping = true;
+                velocityY = -7; 
+                canJump = false; 
             }
 
             // If the player is currently jumping
@@ -128,7 +128,7 @@ namespace HelloWorldWH
             }
         }
 
-        public void PlayerUpdate(List<Entity> stuff, KeyboardState kbState)
+        public void PlayerUpdate(List<Entity> stuff, GameTime gameTime, KeyboardState kbState, KeyboardState prevKBState)
         {
             //player movement
             if(kbState.IsKeyDown(Keys.D) || kbState.IsKeyDown(Keys.Right))
@@ -139,6 +139,8 @@ namespace HelloWorldWH
             {
                 rec.X -= 5;
             }
+
+            Jump(gameTime, kbState, prevKBState);
 
             //collision
             foreach(Entity e in stuff)
