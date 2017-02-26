@@ -134,7 +134,8 @@ namespace HelloWorldWH
                         if (IsKeyPressed(Keys.E))
                         {
                             gameState = GameState.Coding;
-                            form.Show();
+                            form = new Form1();
+                            form.Visible = true;
                         }
                     }
                     break;
@@ -143,7 +144,7 @@ namespace HelloWorldWH
                         
                         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || IsKeyPressed(Keys.Escape))
                         {
-                            form.Hide();
+                            form.Visible = false;
                             gameState = GameState.Game;
                             player.ScoreOn = true;
                         }
