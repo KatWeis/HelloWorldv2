@@ -32,6 +32,9 @@ namespace HelloWorldWH
         //bool about whether or not score is enabled
         private bool scoreOn;
 
+        //bool about whether or not the player can move
+        private bool canMove;
+
 
         //properties
         public Texture2D Idle
@@ -49,6 +52,11 @@ namespace HelloWorldWH
             get { return scoreOn; }
             set { scoreOn = value; }
         }
+        public bool CanMove
+        {
+            get { return canMove; }
+            set { canMove = value; }
+        }
 
         //constructor
         public Player(Rectangle rect, Texture2D tex) : base(rect, tex)
@@ -59,6 +67,8 @@ namespace HelloWorldWH
             velocityY = 0;
             score = 0;
             scoreOn = false;
+            //initialize the players ability to move to be false
+            canMove = false;
         }
 
 
@@ -152,11 +162,11 @@ namespace HelloWorldWH
         public void PlayerUpdate(List<Collectible> stuff, KeyboardState kbState, KeyboardState preKB, GameTime gTime, GraphicsDevice gd)
         {
             //player movement
-            if(kbState.IsKeyDown(Keys.D) || kbState.IsKeyDown(Keys.Right))
+            if ((kbState.IsKeyDown(Keys.D) || kbState.IsKeyDown(Keys.Right)) && canMove == true)
             {
                 rec.X += 5;
             }
-            if(kbState.IsKeyDown(Keys.A) || kbState.IsKeyDown(Keys.Left))
+            if((kbState.IsKeyDown(Keys.A) || kbState.IsKeyDown(Keys.Left)) && canMove == true)
             {
                 rec.X -= 5;
             }
@@ -210,20 +220,10 @@ namespace HelloWorldWH
             source = new Rectangle(frameIndex * frameWidth, 0, frameWidth, frameHeight);
             //vector to draw to screen                    
             origin = new Vector2(0f, 0f);
-            //walk cycle right
-            if ((ck.IsKeyDown(Keys.D))||ck.IsKeyDown(Keys.Right))
-            {
-                sb.Draw(texture, rec, source, Color.White, 0.0f, origin, SpriteEffects.None, 0.0f);
-                down = true;
-            }
-            //walk cycle left
-            if (ck.IsKeyDown(Keys.A)||ck.IsKeyDown(Keys.Left))
-            {
-                sb.Draw(texture, rec, source, Color.White, 0.0f, origin, SpriteEffects.FlipHorizontally, 0.0f);
-                down = false;
-            }
+
             //resting animation
-            if ((ck.IsKeyUp(Keys.D)&&ck.IsKeyUp(Keys.Right)) && (ck.IsKeyUp(Keys.A)&&ck.IsKeyUp(Keys.Left)))
+            if (((ck.IsKeyUp(Keys.D) && ck.IsKeyUp(Keys.Right)) && (ck.IsKeyUp(Keys.A) && ck.IsKeyUp(Keys.Left)))
+                || ((ck.IsKeyDown(Keys.D) && ck.IsKeyDown(Keys.A)) || (ck.IsKeyDown(Keys.Right) && ck.IsKeyDown(Keys.Left))) || canMove == false)
             {
                 if (down == true)
                 {
@@ -234,6 +234,19 @@ namespace HelloWorldWH
                     sb.Draw(idleTexture, rec, source, Color.White, 0.0f, origin, SpriteEffects.FlipHorizontally, 0.0f);
                 }
             }
+            //walk cycle right
+            else if ((ck.IsKeyDown(Keys.D)||ck.IsKeyDown(Keys.Right)) && canMove == true)
+            {
+                sb.Draw(texture, rec, source, Color.White, 0.0f, origin, SpriteEffects.None, 0.0f);
+                down = true;
+            }
+            //walk cycle left
+            else if ((ck.IsKeyDown(Keys.A)||ck.IsKeyDown(Keys.Left)) && canMove == true)
+            {
+                sb.Draw(texture, rec, source, Color.White, 0.0f, origin, SpriteEffects.FlipHorizontally, 0.0f);
+                down = false;
+            }
+           
 
 
         }

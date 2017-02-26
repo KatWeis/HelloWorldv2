@@ -170,6 +170,7 @@ namespace HelloWorldWH
                             form.Visible = false;
                             gameState = GameState.Game;
                             player.ScoreOn = true;
+                            player.CanMove = true;
                         }
                     }
                     break;
