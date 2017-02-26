@@ -15,6 +15,9 @@ namespace HelloWorldWH
         public Form1()
         {
             InitializeComponent();
+            //this.Location = new Point();
+            //this.Size = new Size(Width, Height);
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -76,6 +79,7 @@ namespace HelloWorldWH
             }
         }
 
+        //have the user manually change the text on the screen
         private void codeInputText_TextChanged(object sender, EventArgs e)
         {
 
