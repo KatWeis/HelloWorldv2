@@ -200,8 +200,24 @@ namespace HelloWorldWH
                             //activated when returning to game version
                             form.Visible = false;
                             gameState = GameState.Game;
-                            player.ScoreOn = true;
-                            player.CanMove = true;
+
+                            switch (formCount)
+                            {
+                                case 0:
+                                    player.CanMove = true; player.CanMoveR = true;
+                                    break;
+                                case 1:
+                                    player.CanMoveL = true;
+                                    break;
+                                case 2:
+                                    form.cs = CodeState.Jump;
+                                    break;
+                                case 3:
+                                    player.ScoreOn = true;
+                                    break;
+                            }
+                            
+                            
 
                             //increment form counter so next time it is the next coding challenge
                             formCount++;
@@ -262,6 +278,7 @@ namespace HelloWorldWH
                 case GameState.Coding:
                     {
                         spriteBatch.Draw(menu, new Rectangle(-40, -15, 880, 520), Color.Black);
+                        spriteBatch.DrawString(font, "Press esc to exit the console", new Vector2(280, 430), Color.PaleTurquoise);
                     }
                     break;
             }
