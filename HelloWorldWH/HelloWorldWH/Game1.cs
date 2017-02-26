@@ -40,6 +40,7 @@ namespace HelloWorldWH
         Texture2D collectible;
         Texture2D menu;
 
+        Form1 form = new Form1();
 
         public Game1()
         {
@@ -142,6 +143,7 @@ namespace HelloWorldWH
                         form.Show();
                         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || IsKeyPressed(Keys.Escape))
                         {
+                            form.Hide();
                             gameState = GameState.Game;
                             player.ScoreOn = true;
                         }
