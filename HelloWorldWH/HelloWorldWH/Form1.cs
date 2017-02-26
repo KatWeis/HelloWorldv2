@@ -31,12 +31,13 @@ namespace HelloWorldWH
 
 
 
-        public Form1()
+        public Form1(CodeState cs)
         {
             InitializeComponent();
             //this.Location = new Point();
             //this.Size = new Size(Width, Height);
             this.StartPosition = FormStartPosition.CenterScreen;
+            codeState = cs;
             //switch for codeState
             switch (codeState)
             {
