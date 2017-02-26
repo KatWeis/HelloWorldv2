@@ -41,7 +41,7 @@ namespace HelloWorldWH
         }
 
 
-        public void Jump(GameTime gameTime, KeyboardState cKey, KeyboardState pKey)
+        private void Jump(GameTime gameTime, KeyboardState cKey, KeyboardState pKey)
         {
 
             float time = (float)gameTime.ElapsedGameTime.TotalSeconds; //maybe not needed 
@@ -128,7 +128,7 @@ namespace HelloWorldWH
             }
         }
 
-        public void PlayerUpdate(List<Entity> stuff, KeyboardState kbState)
+        public void PlayerUpdate(List<Entity> stuff, KeyboardState kbState, KeyboardState preKB, GameTime gTime)
         {
             //player movement
             if(kbState.IsKeyDown(Keys.D) || kbState.IsKeyDown(Keys.Right))
@@ -139,6 +139,8 @@ namespace HelloWorldWH
             {
                 rec.X -= 5;
             }
+            //jump
+            Jump(gTime, kbState, preKB);
 
             //collision
             foreach(Entity e in stuff)
