@@ -34,6 +34,8 @@ namespace HelloWorldWH
 
         //bool about whether or not the player can move
         private bool canMove;
+        private bool canMoveR;//moving to the right
+        private bool canMoveL;//moving to the left
 
 
         //properties
@@ -57,6 +59,16 @@ namespace HelloWorldWH
             get { return canMove; }
             set { canMove = value; }
         }
+        public bool CanMoveR
+        {
+            get { return canMoveR; }
+            set { canMoveR = value; }
+        }
+        public bool CanMoveL
+        {
+            get { return canMoveL; }
+            set { canMoveL = value; }
+        }
 
         //constructor
         public Player(Rectangle rect, Texture2D tex) : base(rect, tex)
@@ -69,6 +81,8 @@ namespace HelloWorldWH
             scoreOn = false;
             //initialize the players ability to move to be false
             canMove = false;
+            canMoveL = false;
+            canMoveR = false;
         }
 
 
@@ -162,11 +176,11 @@ namespace HelloWorldWH
         public void PlayerUpdate(List<Collectible> stuff, KeyboardState kbState, KeyboardState preKB, GameTime gTime, GraphicsDevice gd)
         {
             //player movement
-            if ((kbState.IsKeyDown(Keys.D) || kbState.IsKeyDown(Keys.Right)) && canMove == true)
+            if ((kbState.IsKeyDown(Keys.D) || kbState.IsKeyDown(Keys.Right)) && canMoveR == true)
             {
                 rec.X += 5;
             }
-            if((kbState.IsKeyDown(Keys.A) || kbState.IsKeyDown(Keys.Left)) && canMove == true)
+            if((kbState.IsKeyDown(Keys.A) || kbState.IsKeyDown(Keys.Left)) && canMoveL == true)
             {
                 rec.X -= 5;
             }
@@ -223,7 +237,8 @@ namespace HelloWorldWH
 
             //resting animation
             if (((ck.IsKeyUp(Keys.D) && ck.IsKeyUp(Keys.Right)) && (ck.IsKeyUp(Keys.A) && ck.IsKeyUp(Keys.Left)))
-                || ((ck.IsKeyDown(Keys.D) && ck.IsKeyDown(Keys.A)) || (ck.IsKeyDown(Keys.Right) && ck.IsKeyDown(Keys.Left))) || canMove == false)
+                || ((ck.IsKeyDown(Keys.D) && ck.IsKeyDown(Keys.A)) || (ck.IsKeyDown(Keys.Right) && ck.IsKeyDown(Keys.Left))) || canMove == false
+                || ((ck.IsKeyDown(Keys.A) || ck.IsKeyDown(Keys.Left)) && CanMoveL == false))
             {
                 if (down == true)
                 {
@@ -235,13 +250,13 @@ namespace HelloWorldWH
                 }
             }
             //walk cycle right
-            else if ((ck.IsKeyDown(Keys.D)||ck.IsKeyDown(Keys.Right)) && canMove == true)
+            else if ((ck.IsKeyDown(Keys.D)||ck.IsKeyDown(Keys.Right)) && canMoveR == true)
             {
                 sb.Draw(texture, rec, source, Color.White, 0.0f, origin, SpriteEffects.None, 0.0f);
                 down = true;
             }
             //walk cycle left
-            else if ((ck.IsKeyDown(Keys.A)||ck.IsKeyDown(Keys.Left)) && canMove == true)
+            else if ((ck.IsKeyDown(Keys.A)||ck.IsKeyDown(Keys.Left)) && canMoveL == true)
             {
                 sb.Draw(texture, rec, source, Color.White, 0.0f, origin, SpriteEffects.FlipHorizontally, 0.0f);
                 down = false;
