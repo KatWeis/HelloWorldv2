@@ -14,6 +14,7 @@ namespace HelloWorldWH
         //variables
         private bool isActive;//determines if the collectable has been collected or not
         private Random rgen;
+        private Color curCol;
          
         //properties
         public bool IsActive
@@ -21,11 +22,17 @@ namespace HelloWorldWH
             get { return isActive; }
             set { isActive = value; }
         }
+        public Color CurCol
+        {
+            get { return curCol; }
+            set { curCol = value; }
+        }
 
         //constructor
         public Collectible(Rectangle rec, Texture2D tex):base(rec, tex)
         {
-            isActive = true;
+            isActive = false;
+            curCol = Color.Transparent;
             rgen = new Random();
         }
 
@@ -52,8 +59,12 @@ namespace HelloWorldWH
         {
             if(isActive == true)
              {
+                //mark inactive
                 isActive = false;
+                //increment score
                 pl.Score += 10;
+                //make collectibles disappear
+                curCol = Color.Transparent;
             }
         }
     }

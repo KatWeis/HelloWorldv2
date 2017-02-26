@@ -261,7 +261,14 @@ namespace HelloWorldWH
                         //draw collectibles
                         foreach (Collectible col in collects)
                         {
-                            spriteBatch.Draw(collectible, col.Rec, Color.White);
+                            if(player.ScoreOn)
+                            {
+                                //make visible
+                                col.CurCol = Color.White;
+                                //set active
+                                col.IsActive = true;
+                            }
+                            spriteBatch.Draw(collectible, col.Rec, col.CurCol);
                         }
                         
                         //PLAYER ANIMATION -- Anna
