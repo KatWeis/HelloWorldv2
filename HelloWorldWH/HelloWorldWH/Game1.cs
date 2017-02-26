@@ -33,6 +33,8 @@ namespace HelloWorldWH
         Texture2D playerIdle; //texture for idle player
         Texture2D playerText; //texture for moving player sprite
 
+        Form1 form = new Form1();
+
         SpriteFont font;
 
         Texture2D collectible;
@@ -137,6 +139,7 @@ namespace HelloWorldWH
                     break;
                 case GameState.Coding:
                     {
+                        form.Show();
                         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || IsKeyPressed(Keys.Escape))
                         {
                             gameState = GameState.Game;
