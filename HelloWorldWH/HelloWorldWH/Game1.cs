@@ -177,6 +177,7 @@ namespace HelloWorldWH
                 case GameState.MainMenu:
                     {
                         spriteBatch.Draw(menu, new Rectangle(-40, -15, 880, 520), Color.White);
+                        spriteBatch.DrawString(font, "Press enter to start", new Vector2(280, 430), Color.White);
                     }
                     break;
                 case GameState.Game:
