@@ -61,7 +61,7 @@ namespace HelloWorldWH
         Texture2D gameBG;
 
         //windows form
-        Form1 form = new Form1();
+        Form1 form;
 
         //counter to determine which coding state to use
         int formCount;
@@ -86,7 +86,7 @@ namespace HelloWorldWH
             collects = generalCollectibles.Spawn(GraphicsDevice);
             //initialize form count to 0
             formCount = 0;
-
+            form = new Form1(CodeState.Right);
             base.Initialize();
         }
 
@@ -144,7 +144,7 @@ namespace HelloWorldWH
             //set keyboard state to be current state
             kbState = Keyboard.GetState();
             Console.WriteLine(gameState);
-            form.cs = codeState;
+       
 
             //
 
@@ -176,6 +176,7 @@ namespace HelloWorldWH
                         {
                             gameState = GameState.Coding;
                             //pick the coding state of the form
+
                             switch(formCount)
                             {
                                 case 0: form.cs = CodeState.Right;
@@ -187,7 +188,7 @@ namespace HelloWorldWH
                                 case 3: form.cs = CodeState.Collect;
                                     break;
                             }
-                            form = new Form1();
+                            form = new Form1(form.cs);
                             form.Visible = true;
                         }
                     }
