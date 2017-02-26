@@ -31,12 +31,13 @@ namespace HelloWorldWH
 
 
 
-        public Form1()
+        public Form1(CodeState cs)
         {
             InitializeComponent();
             //this.Location = new Point();
             //this.Size = new Size(Width, Height);
             this.StartPosition = FormStartPosition.CenterScreen;
+            codeState = cs;
             //switch for codeState
             switch (codeState)
             {
@@ -141,6 +142,7 @@ namespace HelloWorldWH
 
         private void submitButton_Click(object sender, EventArgs e)
         {
+            //userInput = codeInputText.Text;
             //if the text is null
             if (string.IsNullOrEmpty(codeInputText.Text))
             {
@@ -190,6 +192,8 @@ namespace HelloWorldWH
                     break;
                 case CodeState.Left:
                     {
+                        left = left.Replace(" ", string.Empty);
+                        left.ToUpper();
                         if (input == left)
                         {
                             return true;
@@ -202,6 +206,8 @@ namespace HelloWorldWH
                     break;
                 case CodeState.Jump:
                     {
+                        jump = jump.Replace(" ", string.Empty);
+                        jump.ToUpper();
                         if (input == jump)
                         {
                             return true;
@@ -214,6 +220,8 @@ namespace HelloWorldWH
                     break;
                 case CodeState.Collect:
                     {
+                        collect = collect.Replace(" ", string.Empty);
+                        collect.ToUpper();
                         if (input == left)
                         {
                             return true;
