@@ -19,8 +19,8 @@ namespace HelloWorldWH
         //set string values to check code
         string right = "robot.moveRight = D;";
         string left= "robot.moveLeft = A;";
-        string jump;
-        string collect;
+        string jump = "robot.jump = SPACEBAR;";
+        string collect = "collectable += 1;";
 
         //accessor
         public CodeState cs
@@ -42,22 +42,26 @@ namespace HelloWorldWH
             {
                 case CodeState.Right:
                     {
-                        userPrompt.Text = "robot.moveRight = A;";
+                        userPrompt.Text = right;
+                        codeInputText.Text = "robot.moveRight =";
                     }
                     break;
                 case CodeState.Left:
                     {
-                        userPrompt.Text = "robot.moveLeft";
+                        userPrompt.Text = left;
+                        codeInputText.Text = "robot.moveLeft =";
                     }
                     break;
                 case CodeState.Jump:
                     {
-                        userPrompt.Text = "robot.moveJump";
+                        userPrompt.Text = jump;
+                        codeInputText.Text = "robot.Jump =";
                     }
                     break;
                 case CodeState.Collect:
                     {
-
+                        userPrompt.Text = collect;
+                        codeInputText.Text = "collectable +=";
                     }
                     break;
             }
@@ -140,14 +144,15 @@ namespace HelloWorldWH
             //if the text is null
             if (string.IsNullOrEmpty(codeInputText.Text))
             {
-                codeInputText.Text = "Changing the text required!";
+                userPrompt.Text += Environment.NewLine + "Changing the text required!";
             }
             //if the text is invalid
-            /*
-            else if (codeInputText.Text != " Our real code insert here")
+
+            if (checkCode(userInput) != true)
             {
-                codeInputText.Text = "I'm sorry that wasn't correct!";
+                userPrompt.Text += Environment.NewLine + "I'm sorry that wasn't correct!";
             }
+            /*
             //have it set to null
             else
             {
@@ -164,17 +169,15 @@ namespace HelloWorldWH
         //check code
         public bool checkCode(string input)
         {
-            string right = "right";
-            if (input == right)
-            {
-                return true;
-            }
-
+            input = input.Replace(" ", string.Empty);
+            input.ToUpper();
             //switch for codeState
             switch (codeState)
             {
                 case CodeState.Right:
                     {
+                        right = right.Replace(" ", string.Empty);
+                        right.ToUpper();
                         if (input == right)
                         {
                             return true;
@@ -256,4 +259,4 @@ namespace HelloWorldWH
             }
         }
     }
-}
+
