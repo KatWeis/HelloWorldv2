@@ -33,11 +33,13 @@ namespace HelloWorldWH
         Texture2D playerIdle; //texture for idle player
         Texture2D playerText; //texture for moving player sprite
 
+
         SpriteFont font;
 
         Texture2D collectible;
         Texture2D menu;
 
+        Form1 form = new Form1();
 
         public Game1()
         {
@@ -132,13 +134,16 @@ namespace HelloWorldWH
                         if (IsKeyPressed(Keys.E))
                         {
                             gameState = GameState.Coding;
+                            form.Show();
                         }
                     }
                     break;
                 case GameState.Coding:
                     {
+                        
                         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || IsKeyPressed(Keys.Escape))
                         {
+                            form.Hide();
                             gameState = GameState.Game;
                             player.ScoreOn = true;
                         }
@@ -177,6 +182,7 @@ namespace HelloWorldWH
                 case GameState.MainMenu:
                     {
                         spriteBatch.Draw(menu, new Rectangle(-40, -15, 880, 520), Color.White);
+                        spriteBatch.DrawString(font, "Press enter to start", new Vector2(280, 430), Color.White);
                     }
                     break;
                 case GameState.Game:
