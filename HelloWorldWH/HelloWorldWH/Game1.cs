@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 //use libraries
 using System;
+using System.Collections.Generic;
 
 namespace HelloWorldWH
 {
@@ -48,7 +49,6 @@ namespace HelloWorldWH
         {
             //initialize variables
             gameState = GameState.MainMenu;
-
             base.Initialize();
         }
 
@@ -111,6 +111,7 @@ namespace HelloWorldWH
                     break;
                 case GameState.Game:
                     {
+                        player.PlayerUpdate(new List<Entity>(), kbState);
                         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || IsKeyPressed(Keys.Escape))
                         {
                             gameState = GameState.MainMenu;
@@ -161,7 +162,7 @@ namespace HelloWorldWH
         /// </summary>
         /// <param name="key">key that is being pressed</param>
         /// <returns>True/false on whether or not the key was pressed this frame</returns>
-        private bool IsKeyPressed(Keys key)
+        public bool IsKeyPressed(Keys key)
         {
             if(preKB.IsKeyUp(key) && kbState.IsKeyDown(key))
             {

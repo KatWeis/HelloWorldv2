@@ -130,6 +130,17 @@ namespace HelloWorldWH
 
         public void PlayerUpdate(List<Entity> stuff, KeyboardState kbState)
         {
+            //player movement
+            if(kbState.IsKeyDown(Keys.D) || kbState.IsKeyDown(Keys.Right))
+            {
+                rec.X += 5;
+            }
+            if(kbState.IsKeyDown(Keys.A) || kbState.IsKeyDown(Keys.Left))
+            {
+                rec.X -= 5;
+            }
+
+            //collision
             foreach(Entity e in stuff)
             {
                 //standing on top of the platform
