@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Audio;
 
+// IMPORTANT NOTE: YOU MUST RUN THE OALINST.EXE BEFORE PLAYING THE GAME (it allows the audio to run)
 
 namespace HelloWorldWH
 {
