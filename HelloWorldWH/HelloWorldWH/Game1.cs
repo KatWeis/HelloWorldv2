@@ -63,6 +63,9 @@ namespace HelloWorldWH
         //windows form
         Form1 form = new Form1();
 
+        //counter to determine which coding state to use
+        int formCount;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -81,6 +84,9 @@ namespace HelloWorldWH
             gameState = GameState.MainMenu;
             generalCollectibles = new Collectible(new Rectangle(200, 150, 50, 50), collectible);
             collects = generalCollectibles.Spawn(GraphicsDevice);
+            //initialize form count to 0
+            formCount = 0;
+
             base.Initialize();
         }
 
@@ -169,6 +175,18 @@ namespace HelloWorldWH
                         if (IsKeyPressed(Keys.E))
                         {
                             gameState = GameState.Coding;
+                            //pick the coding state of the form
+                            switch(formCount)
+                            {
+                                case 0: form.cs = CodeState.Right;
+                                    break;
+                                case 1: form.cs = CodeState.Left;
+                                    break;
+                                case 2: form.cs = CodeState.Jump;
+                                    break;
+                                case 3: form.cs = CodeState.Collect;
+                                    break;
+                            }
                             form = new Form1();
                             form.Visible = true;
                         }
@@ -179,10 +197,14 @@ namespace HelloWorldWH
                         
                         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || IsKeyPressed(Keys.Escape))
                         {
+                            //activated when returning to game version
                             form.Visible = false;
                             gameState = GameState.Game;
                             player.ScoreOn = true;
                             player.CanMove = true;
+
+                            //increment form counter so next time it is the next coding challenge
+                            formCount++;
                         }
                     }
                     break;
