@@ -25,3 +25,9 @@
 /processorParam:TextureFormat=Compressed
 /build:Arial.spritefont
 
+#begin credit_to_TopeconHeroes.mp3
+/importer:WavImporter
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:credit_to_TopeconHeroes.mp3
+
