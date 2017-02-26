@@ -134,12 +134,13 @@ namespace HelloWorldWH
                         if (IsKeyPressed(Keys.E))
                         {
                             gameState = GameState.Coding;
+                            form.Show();
                         }
                     }
                     break;
                 case GameState.Coding:
                     {
-                        form.Show();
+                        
                         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || IsKeyPressed(Keys.Escape))
                         {
                             form.Hide();
