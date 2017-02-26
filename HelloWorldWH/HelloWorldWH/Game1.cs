@@ -29,7 +29,8 @@ namespace HelloWorldWH
         KeyboardState preKB; //used to hold input of last keyboard presses
 
         Player player; //player object that the user controls
-        Texture2D playerText; //texture for the player sprite
+        Texture2D playerIdle; //texture for idle player
+        Texture2D playerText; //texture for moving player sprite
 
         public Game1()
         {
@@ -61,8 +62,10 @@ namespace HelloWorldWH
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // create player
-            playerText = Content.Load<Texture2D>("spritrestsheet");
+            playerIdle = Content.Load<Texture2D>("spritrestsheet");
+            playerText = Content.Load<Texture2D>("spriterunsheet");
             player = new Player(new Rectangle(0, 0, 200, 250), playerText);
+            player.Idle = playerIdle;
 
             // TODO: use this.Content to load your game content here
         }
