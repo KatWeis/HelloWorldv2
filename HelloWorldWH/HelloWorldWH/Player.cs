@@ -194,7 +194,7 @@ namespace HelloWorldWH
             {
                 if (down == true)
                 {
-                    sb.Draw(idleTexture, rec, source, Color.White);        
+                    sb.Draw(idleTexture, rec, source, Color.White);
                 }
                 if (down == false)
                 {
