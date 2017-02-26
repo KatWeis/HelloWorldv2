@@ -75,5 +75,11 @@ namespace CodeForm1
         {
             promptTextBox.Text = "KEYBOARD (Right/Left) " + Environment.NewLine + " Check for left/right keyboard input. " + Environment.NewLine + " Get the current keyboard state: " + Environment.NewLine + " Use  KeyboardState kbState = Keyboard.GetState()";
         }
+
+        //prompt label
+        private void label2_Click(object sender, EventArgs e)
+        {
+            //promptLabel.ForeColor = System.Drawing.Color.DarkGreen;
+        }
     }
 }

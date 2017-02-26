@@ -34,7 +34,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.hintButton = new System.Windows.Forms.Button();
             this.progressBar = new System.Windows.Forms.ProgressBar();
-            this.label2 = new System.Windows.Forms.Label();
+            this.promptLabel = new System.Windows.Forms.Label();
             this.promptTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
@@ -93,14 +93,15 @@
             this.progressBar.TabIndex = 5;
             this.progressBar.Click += new System.EventHandler(this.progressBar_Click);
             // 
-            // label2
+            // promptLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(74, 50);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 25);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Prompt:";
+            this.promptLabel.AutoSize = true;
+            this.promptLabel.Location = new System.Drawing.Point(74, 50);
+            this.promptLabel.Name = "promptLabel";
+            this.promptLabel.Size = new System.Drawing.Size(86, 25);
+            this.promptLabel.TabIndex = 6;
+            this.promptLabel.Text = "Prompt:";
+            this.promptLabel.Click += new System.EventHandler(this.label2_Click);
             // 
             // promptTextBox
             // 
@@ -117,7 +118,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 1121);
             this.Controls.Add(this.promptTextBox);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.promptLabel);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.hintButton);
             this.Controls.Add(this.label1);
@@ -139,7 +140,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button hintButton;
         private System.Windows.Forms.ProgressBar progressBar;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label promptLabel;
         private System.Windows.Forms.TextBox promptTextBox;
     }
 }
