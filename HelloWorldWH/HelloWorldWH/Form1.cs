@@ -82,7 +82,26 @@ namespace HelloWorldWH
         //have the user manually change the text on the screen
         private void codeInputText_TextChanged(object sender, EventArgs e)
         {
+            //insert the real code in here :)
+        }
 
+        private void submitButton_Click(object sender, EventArgs e)
+        {
+            //if the text is null
+            if (string.IsNullOrEmpty(codeInputText.Text))
+            {
+                codeInputText.Text = "Changing the text required!";
+            }
+            //if the text is invalid
+            else if (codeInputText.Text != " Our real code insert here")
+            {
+                codeInputText.Text = "I'm sorry that wasn't correct!";
+            }
+            //have it set to null
+            else
+            {
+                codeInputText.Text = " ";
+            }
         }
     }
 }
