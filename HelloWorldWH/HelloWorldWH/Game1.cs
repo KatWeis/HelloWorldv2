@@ -279,13 +279,13 @@ namespace HelloWorldWH
                         switch (form.cs)
                         {
                             case CodeState.Right:
-                                spriteBatch.DrawString(font, "Hello, World! I am an Algorithmic Coding Education Device, \n but you can call me Ace. \nIt appears my movement code has been altered. \nI need your help to move RIGHT. \n Press E to open my terminal...", new Vector2(50, GraphicsDevice.Viewport.Height/2), Color.White);                        
+                                spriteBatch.DrawString(font, "Hello, World! I am an Algorithmic Coding Education Device, \n but you can call me Ace. \nIt appears my movement code has been altered. \nI need your help to move. \n Press E to open my terminal...", new Vector2(50, 20), Color.White);                        
                                 break;
                             case CodeState.Left:
-                                spriteBatch.DrawString(font, "Thanks friend! Now can you help me move left? Press E to open my terminal.", new Vector2(50, GraphicsDevice.Viewport.Height / 2), Color.White);
+                                spriteBatch.DrawString(font, "I can walk again! I'm so happy I could jump for joy! Oh wait... \nhuman, I must ask for your help once again.", new Vector2(50, GraphicsDevice.Viewport.Height / 2), Color.White);
                                 break;
                             case CodeState.Jump:
-                                spriteBatch.DrawString(font, "I can walk again! I'm so happy I could jump for joy! Oh wait... \nhuman, I must ask for your help once again.", new Vector2(50, GraphicsDevice.Viewport.Height / 2), Color.White);
+                                spriteBatch.DrawString(font, "Thank you, friend! \nLook at these orbs, sadly I cannot pick them up. \nPerhaps you can take a look at my terminal again?", new Vector2(50, GraphicsDevice.Viewport.Height / 2), Color.White);
                                 break;
                             case CodeState.Collect:
                                 
