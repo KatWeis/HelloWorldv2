@@ -12,6 +12,24 @@ namespace HelloWorldWH
 {
     public partial class Form1 : Form
     {
+        //attributes
+        string userInput;
+        CodeState codeState;
+
+        //set string values to check code
+        string right = "robot.moveRight = D;";
+        string left= "robot.moveLeft = A;";
+        string jump;
+        string collect;
+
+        //accessor
+        public CodeState cs
+        {
+            get { return codeState; }
+            set { codeState = value; }
+        }
+
+
 
         public Form1()
         {
@@ -19,6 +37,31 @@ namespace HelloWorldWH
             //this.Location = new Point();
             //this.Size = new Size(Width, Height);
             this.StartPosition = FormStartPosition.CenterScreen;
+            //switch for codeState
+            switch (codeState)
+            {
+                case CodeState.Right:
+                    {
+                        userPrompt.Text = "robot.moveRight = A;";
+                    }
+                    break;
+                case CodeState.Left:
+                    {
+                        userPrompt.Text = "robot.moveLeft";
+                    }
+                    break;
+                case CodeState.Jump:
+                    {
+                        userPrompt.Text = "robot.moveJump";
+                    }
+                    break;
+                case CodeState.Collect:
+                    {
+
+                    }
+                    break;
+            }
+
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -33,6 +76,7 @@ namespace HelloWorldWH
         private void Form1_Load(object sender, EventArgs e)
         {
             //this.BackColor = System.Drawing.Color.Black;
+
         }
 
         // have the clear button clear the input from the codeInput field
@@ -45,6 +89,7 @@ namespace HelloWorldWH
         // have this button change the color of the background of the GUI
         private void colorChangeButton_Click(object sender, EventArgs e)
         {
+            
             /*
             //randomly change the background color of the GUI
 
@@ -86,6 +131,8 @@ namespace HelloWorldWH
         private void codeInputText_TextChanged(object sender, EventArgs e)
         {
             //insert the real code in here :)
+            userInput = codeInputText.Text;
+
         }
 
         private void submitButton_Click(object sender, EventArgs e)
@@ -96,6 +143,7 @@ namespace HelloWorldWH
                 codeInputText.Text = "Changing the text required!";
             }
             //if the text is invalid
+            /*
             else if (codeInputText.Text != " Our real code insert here")
             {
                 codeInputText.Text = "I'm sorry that wasn't correct!";
@@ -104,6 +152,107 @@ namespace HelloWorldWH
             else
             {
                 codeInputText.Text = " ";
+            }*/
+            //check code
+            if (checkCode(userInput))
+            {
+                codeInputText.Text = "Correct!";
+                this.Close();
+            }
+        }
+
+        //check code
+        public bool checkCode(string input)
+        {
+            string right = "right";
+            if (input == right)
+            {
+                return true;
+            }
+
+            //switch for codeState
+            switch (codeState)
+            {
+                case CodeState.Right:
+                    {
+                        if (input == right)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                    break;
+                case CodeState.Left:
+                    {
+                        if (input == left)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                    break;
+                case CodeState.Jump:
+                    {
+                        if (input == jump)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                    break;
+                case CodeState.Collect:
+                    {
+                        if (input == left)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                    break;
+            }
+            return false;
+
+
+        }
+
+        private void userPrompt_TextChanged(object sender, EventArgs e)
+        {
+            /*
+            //switch for codeState
+            switch (codeState)
+            {
+                case CodeState.Right:
+                    {
+                        userPrompt.Text = "robot.moveRight = A;";
+                    }
+                    break;
+                case CodeState.Left:
+                    {
+                        userPrompt.Text = "robot.moveLeft";
+                    }
+                    break;
+                case CodeState.Jump:
+                    {
+                        userPrompt.Text = "robot.moveJump";
+                    }
+                    break;
+                case CodeState.Collect:
+                    {
+
+                    }
+                    break;*/
             }
         }
     }

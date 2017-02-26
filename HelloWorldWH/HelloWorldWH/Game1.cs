@@ -18,6 +18,13 @@ namespace HelloWorldWH
         Coding,
         Game
     }
+    public enum CodeState
+    {
+        Right,
+        Left,
+        Jump,
+        Collect
+    }
 
 
     /// <summary>
@@ -30,6 +37,7 @@ namespace HelloWorldWH
 
         //variables
         GameState gameState;//current mode of the game
+        CodeState codeState; //code state that allows checking of user input
         KeyboardState kbState; //used to get keyboard input
         KeyboardState preKB; //used to hold input of last keyboard presses
 
@@ -130,7 +138,9 @@ namespace HelloWorldWH
             //set keyboard state to be current state
             kbState = Keyboard.GetState();
             Console.WriteLine(gameState);
-            
+            form.cs = codeState;
+
+            //
 
             //have switch statement to manage gamestate
             switch(gameState)
