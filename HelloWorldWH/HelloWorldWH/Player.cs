@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace HelloWorldWH
 {
-    class Player: Entity
+    class Player : Entity
     {
         //animation attributes -- Anna
         bool down = true; //tracks last key pressed to determine which directional rest animation to use
@@ -21,7 +21,7 @@ namespace HelloWorldWH
         }
 
         //constructor
-        public Player(Rectangle rec, Texture2D tex):base(rec, tex)
+        public Player(Rectangle rect, Texture2D tex) : base(rect, tex)
         {
         }
 
@@ -36,13 +36,13 @@ namespace HelloWorldWH
             //walk cycle right
             if (ck.IsKeyDown(Keys.D))
             {
-                sb.Draw(texture, position, source, Color.White, 0.0f, origin, SpriteEffects.None, 0.0f);
+                sb.Draw(texture, rec, source, Color.White, 0.0f, origin, SpriteEffects.None, 0.0f);
                 down = true;
             }
             //walk cycle left
             if (ck.IsKeyDown(Keys.A))
             {
-                sb.Draw(texture, position, source, Color.White, 0.0f, origin, SpriteEffects.FlipHorizontally, 0.0f);
+                sb.Draw(texture, rec, source, Color.White, 0.0f, origin, SpriteEffects.FlipHorizontally, 0.0f);
                 down = false;
             }
             //resting animation
@@ -50,14 +50,18 @@ namespace HelloWorldWH
             {
                 if (down == true)
                 {
-                    sb.Draw(idleTexture, position, source, Color.White);
+                    //sb.Draw(idleTexture, rec, source, Color.White);
+                    sb.Draw(texture, rec, source, Color.White, 0.0f, origin, SpriteEffects.None, 0.0f);
                 }
                 if (down == false)
                 {
-                    sb.Draw(idleTexture, position, source, Color.White, 0.0f, origin, SpriteEffects.FlipHorizontally, 0.0f);
+                    //sb.Draw(idleTexture, rec, source, Color.White, 0.0f, origin, SpriteEffects.FlipHorizontally, 0.0f);
+                    sb.Draw(texture, rec, source, Color.White, 0.0f, origin, SpriteEffects.None, 0.0f);
                 }
             }
 
 
         }
     }
+}
+

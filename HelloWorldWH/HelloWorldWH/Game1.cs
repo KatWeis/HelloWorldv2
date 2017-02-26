@@ -29,7 +29,7 @@ namespace HelloWorldWH
         KeyboardState preKB; //used to hold input of last keyboard presses
 
         Player player; //player object that the user controls
-        Texture2D plText; //texture for the player sprite
+        Texture2D playerText; //texture for the player sprite
 
         public Game1()
         {
@@ -59,6 +59,10 @@ namespace HelloWorldWH
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            // create player
+            playerText = Content.Load<Texture2D>("spritrestsheet");
+            player = new Player(new Rectangle(0, 0, 200, 250), playerText);
 
             // TODO: use this.Content to load your game content here
         }
@@ -141,7 +145,7 @@ namespace HelloWorldWH
             spriteBatch.Begin();
             //PLAYER ANIMATION -- Anna
             player.Time += (float)gameTime.ElapsedGameTime.TotalSeconds;
-            player.AnimateSetup(1, 288, 350, 8);
+            player.AnimateSetup(1, 502, 629, 6);
             player.DrawAnimation(kbState, spriteBatch);
             spriteBatch.End();
               
