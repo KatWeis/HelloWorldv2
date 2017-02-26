@@ -55,7 +55,11 @@ namespace CodeForm1
         // This will allow the user to edit the text that is currently in the form 
         private void codeInputBox_TextChanged(object sender, EventArgs e)
         {
+            //Have the using be able to chnage the KeyBoard Input
+            codeInputBox.Text = "// Get the current keyboard state \n KeyboardState kbState = Keyboard.GetState(); \n //Never do this: \n KeyboardState kbState = new KeyboardState(); \n //Statement will be blank! \n //Check for the Right Key \n If(kbState.IsKeyDown(Keys.Right)) \n // Move the player right \n } \n } \n //Check for the Left Key \n If(kbState.IsKeyDown(Keys.Left)) \n { \n // Move the player left \n } ";
+            
             //codeInputBox.Text = " I will teach you to code maybe";
+            
             //saves input to a string
             string codeInput = codeInputBox.ToString();
         }
@@ -69,7 +73,7 @@ namespace CodeForm1
         //Give Some Instructions to the user
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            promptTextBox.Text = "KEYBOARD (Right/Left)" + "Check for left/right keyboard input." + "Get the current keyboard state: " + "Use  KeyboardState kbState = Keyboard.GetState()";
+            promptTextBox.Text = "KEYBOARD (Right/Left) \n Check for left/right keyboard input. \n Get the current keyboard state: \n Use  KeyboardState kbState = Keyboard.GetState()";
         }
     }
 }
