@@ -64,7 +64,7 @@ namespace HelloWorldWH
             // create player
             playerIdle = Content.Load<Texture2D>("spritrestsheet");
             playerText = Content.Load<Texture2D>("spriterunsheet");
-            player = new Player(new Rectangle(0, 0, 200, 250), playerText);
+            player = new Player(new Rectangle(0, 0, 150, 200), playerText);
             player.Idle = playerIdle;
 
             // TODO: use this.Content to load your game content here
@@ -111,7 +111,7 @@ namespace HelloWorldWH
                     break;
                 case GameState.Game:
                     {
-                        player.PlayerUpdate(new List<Entity>(), kbState, preKB, gameTime);
+                        player.PlayerUpdate(new List<Entity>(), kbState, preKB, gameTime, GraphicsDevice);
                         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || IsKeyPressed(Keys.Escape))
                         {
                             gameState = GameState.MainMenu;
