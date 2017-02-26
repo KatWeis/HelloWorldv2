@@ -102,6 +102,8 @@ namespace HelloWorldWH
             music = Content.Load<Song>("credit_to_TopeconHeroes.ogg");
             MediaPlayer.Play(music);
             MediaPlayer.IsRepeating = true;
+
+
         }
 
         /// <summary>
