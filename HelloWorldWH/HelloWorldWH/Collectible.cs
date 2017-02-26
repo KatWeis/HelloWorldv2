@@ -42,7 +42,7 @@ namespace HelloWorldWH
             {
                 int x = rgen.Next(10, windowW - 80);
                 int y = rgen.Next(10, windowH - 80);
-                col = new Collectible(new Rectangle(x, y, 100, 100), texture);
+                col = new Collectible(new Rectangle(x, y, 50, 50), texture);
                 collects.Add(col);
             }
             return collects;

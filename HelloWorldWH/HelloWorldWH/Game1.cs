@@ -50,6 +50,7 @@ namespace HelloWorldWH
         //textures for other objects
         Texture2D collectible;
         Texture2D menu;
+        Texture2D gameBG;
 
         //windows form
         Form1 form = new Form1();
@@ -94,10 +95,11 @@ namespace HelloWorldWH
             font = Content.Load<SpriteFont>("Arial");
             
             //load in menu asset
-            collectible = Content.Load<Texture2D>("eat_me");
+            collectible = Content.Load<Texture2D>("eateat");
 
             //load in collectible asset
             menu = Content.Load<Texture2D>("logo.png");
+            gameBG = Content.Load<Texture2D>("stage.png");
 
             //music
             music = Content.Load<Song>("credit_to_TopeconHeroes.ogg");
@@ -191,16 +193,7 @@ namespace HelloWorldWH
 
             spriteBatch.Begin();
 
-            //PLAYER ANIMATION -- Anna
-            player.Time += (float)gameTime.ElapsedGameTime.TotalSeconds;
-            player.AnimateSetup(1, 502, 629, 6);
-            player.DrawAnimation(kbState, spriteBatch);
-
-            //draw text if the user has unlocked score
-            if(player.ScoreOn)
-            {
-                spriteBatch.DrawString(font, "Score: " + player.Score, new Vector2(20, 20), Color.White);
-            }
+            
 
             //have switch statement to manage gamestate
             switch (gameState)
@@ -213,9 +206,24 @@ namespace HelloWorldWH
                     break;
                 case GameState.Game:
                     {
+                        //draw BG
+                        spriteBatch.Draw(gameBG, new Rectangle(-40, -15, 880, 520), Color.White);
+
+                        //draw collectibles
                         foreach (Collectible col in collects)
                         {
                             spriteBatch.Draw(collectible, col.Rec, Color.White);
+                        }
+                        
+                        //PLAYER ANIMATION -- Anna
+                        player.Time += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        player.AnimateSetup(1, 502, 629, 6);
+                        player.DrawAnimation(kbState, spriteBatch);
+
+                        //draw text if the user has unlocked score
+                        if (player.ScoreOn)
+                        {
+                            spriteBatch.DrawString(font, "Score: " + player.Score, new Vector2(20, 20), Color.White);
                         }
                     }
                     break;
