@@ -48,7 +48,6 @@ namespace HelloWorldWH
         {
             //initialize variables
             gameState = GameState.MainMenu;
-
             base.Initialize();
         }
 
