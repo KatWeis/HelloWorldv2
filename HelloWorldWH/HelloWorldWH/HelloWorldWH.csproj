@@ -77,6 +77,9 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Icon.ico" />
+    <Content Include="Content\credit_to_TopeconHeroes.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\eat_me.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -98,6 +101,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Content\Arial.spritefont" />
+    <None Include="Content\credit_to_TopeconHeroes.ogg" />
+    <None Include="Content\credit_to_TopeconHeroes.xnb" />
     <None Include="Content\NewSpriteFont.spritefont">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
