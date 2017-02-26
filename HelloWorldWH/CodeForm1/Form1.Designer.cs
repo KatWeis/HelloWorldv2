@@ -35,7 +35,7 @@
             this.hintButton = new System.Windows.Forms.Button();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.label2 = new System.Windows.Forms.Label();
-            this.promptView = new System.Windows.Forms.ListView();
+            this.promptTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // submitButton
@@ -102,20 +102,21 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Prompt:";
             // 
-            // promptView
+            // promptTextBox
             // 
-            this.promptView.Location = new System.Drawing.Point(75, 93);
-            this.promptView.Name = "promptView";
-            this.promptView.Size = new System.Drawing.Size(673, 119);
-            this.promptView.TabIndex = 7;
-            this.promptView.UseCompatibleStateImageBehavior = false;
+            this.promptTextBox.Location = new System.Drawing.Point(79, 105);
+            this.promptTextBox.Multiline = true;
+            this.promptTextBox.Name = "promptTextBox";
+            this.promptTextBox.Size = new System.Drawing.Size(672, 120);
+            this.promptTextBox.TabIndex = 7;
+            this.promptTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 1121);
-            this.Controls.Add(this.promptView);
+            this.Controls.Add(this.promptTextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.hintButton);
@@ -139,7 +140,7 @@
         private System.Windows.Forms.Button hintButton;
         private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ListView promptView;
+        private System.Windows.Forms.TextBox promptTextBox;
     }
 }
 
