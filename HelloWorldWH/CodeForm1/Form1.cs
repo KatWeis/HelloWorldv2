@@ -56,7 +56,7 @@ namespace CodeForm1
         private void codeInputBox_TextChanged(object sender, EventArgs e)
         {
             //Have the using be able to chnage the KeyBoard Input
-            codeInputBox.Text = "// Get the current keyboard state \n KeyboardState kbState = Keyboard.GetState(); \n //Never do this: \n KeyboardState kbState = new KeyboardState(); \n //Statement will be blank! \n //Check for the Right Key \n If(kbState.IsKeyDown(Keys.Right)) \n // Move the player right \n } \n } \n //Check for the Left Key \n If(kbState.IsKeyDown(Keys.Left)) \n { \n // Move the player left \n } ";
+            codeInputBox.Text = "// Get the current keyboard state" + Environment.NewLine + "KeyboardState kbState = Keyboard.GetState();" + Environment.NewLine + " //Never do this: " + Environment.NewLine + " KeyboardState kbState = new KeyboardState(); " + Environment.NewLine + " //Statement will be blank! " + Environment.NewLine + " //Check for the Right Key " + Environment.NewLine + " If(kbState.IsKeyDown(Keys.Right)) " + Environment.NewLine + " { " + Environment.NewLine + " // Move the player right " + Environment.NewLine + "} " + Environment.NewLine + " //Check for the Left Key " + Environment.NewLine + " If(kbState.IsKeyDown(Keys.Left)) " + Environment.NewLine + " { " + Environment.NewLine + " // Move the player left " + Environment.NewLine + " } ";
             
             //codeInputBox.Text = " I will teach you to code maybe";
             
@@ -73,7 +73,7 @@ namespace CodeForm1
         //Give Some Instructions to the user
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            promptTextBox.Text = "KEYBOARD (Right/Left) \n Check for left/right keyboard input. \n Get the current keyboard state: \n Use  KeyboardState kbState = Keyboard.GetState()";
+            promptTextBox.Text = "KEYBOARD (Right/Left) " + Environment.NewLine + " Check for left/right keyboard input. " + Environment.NewLine + " Get the current keyboard state: " + Environment.NewLine + " Use  KeyboardState kbState = Keyboard.GetState()";
         }
     }
 }
