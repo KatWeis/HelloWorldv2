@@ -40,7 +40,7 @@
             // 
             // submitButton
             // 
-            this.submitButton.BackColor = System.Drawing.Color.AliceBlue;
+            this.submitButton.BackColor = System.Drawing.Color.PaleTurquoise;
             this.submitButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.submitButton.Location = new System.Drawing.Point(766, 805);
             this.submitButton.Name = "submitButton";
@@ -52,7 +52,7 @@
             // 
             // clearButton
             // 
-            this.clearButton.BackColor = System.Drawing.Color.AliceBlue;
+            this.clearButton.BackColor = System.Drawing.Color.PaleTurquoise;
             this.clearButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.clearButton.Location = new System.Drawing.Point(44, 805);
             this.clearButton.Name = "clearButton";
@@ -84,8 +84,8 @@
             // 
             // hintButton
             // 
-            this.hintButton.BackColor = System.Drawing.Color.AliceBlue;
-            this.hintButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.hintButton.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.hintButton.ForeColor = System.Drawing.Color.Black;
             this.hintButton.Location = new System.Drawing.Point(766, 91);
             this.hintButton.Name = "hintButton";
             this.hintButton.Size = new System.Drawing.Size(153, 70);
@@ -114,7 +114,7 @@
             // 
             // colorChangeButton
             // 
-            this.colorChangeButton.BackColor = System.Drawing.Color.AliceBlue;
+            this.colorChangeButton.BackColor = System.Drawing.Color.PaleTurquoise;
             this.colorChangeButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.colorChangeButton.Location = new System.Drawing.Point(398, 805);
             this.colorChangeButton.Name = "colorChangeButton";
@@ -128,7 +128,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.SlateGray;
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(974, 930);
             this.Controls.Add(this.colorChangeButton);
             this.Controls.Add(this.promptLabel);
