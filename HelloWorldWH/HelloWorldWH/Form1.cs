@@ -74,5 +74,11 @@ namespace HelloWorldWH
                     this.BackColor = System.Drawing.Color.White;
                     break;
             }
+        }
+
+        private void codeInputText_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
