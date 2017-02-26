@@ -37,3 +37,9 @@
 /processorParam:TextureFormat=Color
 /build:logo.ico
 
+#begin credit_to_TopeconHeroes.ogg
+/importer:OggImporter
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:credit_to_TopeconHeroes.ogg
+

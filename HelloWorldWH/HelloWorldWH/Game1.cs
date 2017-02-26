@@ -4,6 +4,9 @@ using Microsoft.Xna.Framework.Input;
 //use libraries
 using System;
 using System.Collections.Generic;
+using Microsoft.Xna.Framework.Media;
+using Microsoft.Xna.Framework.Audio;
+
 
 namespace HelloWorldWH
 {
@@ -33,14 +36,21 @@ namespace HelloWorldWH
         Texture2D playerIdle; //texture for idle player
         Texture2D playerText; //texture for moving player sprite
 
+        //collectibles
         Collectible generalCollectibles;
         List<Collectible> collects;
 
+        //font
         SpriteFont font;
 
+        //music
+        Song music;
+
+        //textures for other objects
         Texture2D collectible;
         Texture2D menu;
 
+        //windows form
         Form1 form = new Form1();
 
         public Game1()
@@ -86,7 +96,12 @@ namespace HelloWorldWH
             collectible = Content.Load<Texture2D>("eat_me");
 
             //load in collectible asset
-            menu = Content.Load<Texture2D>("logo");
+            menu = Content.Load<Texture2D>("logo.png");
+
+            //music
+            music = Content.Load<Song>("credit_to_TopeconHeroes.ogg");
+            MediaPlayer.Play(music);
+            MediaPlayer.IsRepeating = true;
         }
 
         /// <summary>
