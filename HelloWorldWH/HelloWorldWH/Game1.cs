@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Audio;
 
+
 namespace HelloWorldWH
 {
     //enums
@@ -35,15 +36,15 @@ namespace HelloWorldWH
         Texture2D playerIdle; //texture for idle player
         Texture2D playerText; //texture for moving player sprite
 
-        //background music
-        Song music;
-
         //collectibles
         Collectible generalCollectibles;
         List<Collectible> collects;
 
-        //fonts
+        //font
         SpriteFont font;
+
+        //music
+        Song music;
 
         //textures for other objects
         Texture2D collectible;
@@ -90,17 +91,17 @@ namespace HelloWorldWH
 
             //font for score
             font = Content.Load<SpriteFont>("Arial");
-
-            //load in music
-            //music = Content.Load<Song>("credit_to_TopeconHeroes.ogg");
-            //MediaPlayer.Play(music);
-            //MediaPlayer.IsRepeating = true;
-
+            
             //load in menu asset
             collectible = Content.Load<Texture2D>("eat_me");
 
             //load in collectible asset
-            menu = Content.Load<Texture2D>("logo");
+            menu = Content.Load<Texture2D>("logo.png");
+
+            //music
+            music = Content.Load<Song>("credit_to_TopeconHeroes.ogg");
+            MediaPlayer.Play(music);
+            MediaPlayer.IsRepeating = true;
         }
 
         /// <summary>
