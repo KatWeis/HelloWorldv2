@@ -63,6 +63,9 @@ namespace HelloWorldWH
         //windows form
         Form1 form;
 
+        //boolean that is only true the first frame that score is enabled
+        bool first;
+
         //counter to determine which coding state to use
         int formCount;
 
@@ -87,6 +90,8 @@ namespace HelloWorldWH
             //initialize form count to 0
             formCount = 0;
             form = new Form1(CodeState.Right);
+            first = false;
+
             base.Initialize();
         }
 
@@ -211,10 +216,11 @@ namespace HelloWorldWH
                                     player.CanMoveL = true;
                                     break;
                                 case 2:
-                                    form.cs = CodeState.Jump;
+                                    player.JumpEnabled = true;
                                     break;
                                 case 3:
                                     player.ScoreOn = true;
+                                    first = true;
                                     break;
                             }
                             
@@ -261,7 +267,15 @@ namespace HelloWorldWH
                         //draw collectibles
                         foreach (Collectible col in collects)
                         {
-                            spriteBatch.Draw(collectible, col.Rec, Color.White);
+                            if(player.ScoreOn && first == true)
+                            {
+                                //make visible
+                                col.CurCol = Color.White;
+                                //set active
+                                col.IsActive = true;
+                                first = false;
+                            }
+                            spriteBatch.Draw(collectible, col.Rec, col.CurCol);
                         }
                         
                         //PLAYER ANIMATION -- Anna
