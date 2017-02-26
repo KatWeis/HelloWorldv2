@@ -39,6 +39,11 @@ namespace HelloWorldWH
             get { return score; }
             set { score = value; }
         }
+        public bool ScoreOn
+        {
+            get { return scoreOn; }
+            set { scoreOn = value; }
+        }
 
         //constructor
         public Player(Rectangle rect, Texture2D tex) : base(rect, tex)
@@ -180,7 +185,8 @@ namespace HelloWorldWH
                 {
                     if(e is Collectable)
                     {
-                        //call some method to react to colliding with the collectable
+                        Collectable temp = (Collectable)e;
+                        temp.CollisionResolution(this);
                     }
                     else
                     {
