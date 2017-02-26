@@ -22,6 +22,10 @@ namespace HelloWorldWH
         //animation attributes -- Anna
         bool down = true; //tracks last key pressed to determine which directional rest animation to use
         Texture2D idleTexture;
+        //variable to keep track of score
+        private int score;
+        //bool about whether or not score is enabled
+        private bool scoreOn;
 
 
         //properties
@@ -29,6 +33,11 @@ namespace HelloWorldWH
         {
             get { return idleTexture; }
             set { idleTexture = value; }
+        }
+        public int Score
+        {
+            get { return score; }
+            set { score = value; }
         }
 
         //constructor
@@ -38,6 +47,8 @@ namespace HelloWorldWH
             isJumping = false;
             canJump = false;
             velocityY = 0;
+            score = 0;
+            scoreOn = false;
         }
 
 
@@ -47,7 +58,7 @@ namespace HelloWorldWH
             float time = (float)gameTime.ElapsedGameTime.TotalSeconds; //maybe not needed 
 
             //If the Space Key is being pressed
-            if (cKey.IsKeyDown(Keys.Space)) //short jump
+            if (cKey.IsKeyDown(Keys.Space) && canJump == true) //short jump
             {
 
                 isJumping = true; // the player is jumping
@@ -189,19 +200,19 @@ namespace HelloWorldWH
             //vector to draw to screen                    
             origin = new Vector2(0f, 0f);
             //walk cycle right
-            if (ck.IsKeyDown(Keys.D))
+            if ((ck.IsKeyDown(Keys.D))||ck.IsKeyDown(Keys.Right))
             {
                 sb.Draw(texture, rec, source, Color.White, 0.0f, origin, SpriteEffects.None, 0.0f);
                 down = true;
             }
             //walk cycle left
-            if (ck.IsKeyDown(Keys.A))
+            if (ck.IsKeyDown(Keys.A)||ck.IsKeyDown(Keys.Left))
             {
                 sb.Draw(texture, rec, source, Color.White, 0.0f, origin, SpriteEffects.FlipHorizontally, 0.0f);
                 down = false;
             }
             //resting animation
-            if (ck.IsKeyUp(Keys.D) && (ck.IsKeyUp(Keys.A)))
+            if ((ck.IsKeyUp(Keys.D)&&ck.IsKeyUp(Keys.Right)) && (ck.IsKeyUp(Keys.A)&&ck.IsKeyUp(Keys.Left)))
             {
                 if (down == true)
                 {

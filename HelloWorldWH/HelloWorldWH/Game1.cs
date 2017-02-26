@@ -33,6 +33,7 @@ namespace HelloWorldWH
         Texture2D playerIdle; //texture for idle player
         Texture2D playerText; //texture for moving player sprite
 
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
