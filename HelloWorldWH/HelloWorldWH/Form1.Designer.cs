@@ -35,6 +35,7 @@
             this.hintButton = new System.Windows.Forms.Button();
             this.userPrompt = new System.Windows.Forms.TextBox();
             this.promptLabel = new System.Windows.Forms.Label();
+            this.colorChangeButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // submitButton
@@ -54,6 +55,7 @@
             this.clearButton.TabIndex = 1;
             this.clearButton.Text = "Clear";
             this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
             // codeInputText
             // 
@@ -99,11 +101,22 @@
             this.promptLabel.TabIndex = 6;
             this.promptLabel.Text = "User Prompt:";
             // 
+            // colorChangeButton
+            // 
+            this.colorChangeButton.Location = new System.Drawing.Point(398, 804);
+            this.colorChangeButton.Name = "colorChangeButton";
+            this.colorChangeButton.Size = new System.Drawing.Size(153, 70);
+            this.colorChangeButton.TabIndex = 7;
+            this.colorChangeButton.Text = "Change Color";
+            this.colorChangeButton.UseVisualStyleBackColor = true;
+            this.colorChangeButton.Click += new System.EventHandler(this.colorChangeButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(974, 929);
+            this.Controls.Add(this.colorChangeButton);
             this.Controls.Add(this.promptLabel);
             this.Controls.Add(this.userPrompt);
             this.Controls.Add(this.hintButton);
@@ -128,5 +141,6 @@
         private System.Windows.Forms.Button hintButton;
         private System.Windows.Forms.TextBox userPrompt;
         private System.Windows.Forms.Label promptLabel;
+        private System.Windows.Forms.Button colorChangeButton;
     }
 }
