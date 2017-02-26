@@ -13,14 +13,17 @@ namespace HelloWorldWH
     {
         //variables
         private const float GRAVITY = 9.8f;
+        private float velocityY; // upward velocity of the player
         //booleans to do with jumping
         private bool isJumping;
         private bool canJump;
         //variable for Y before jumping
-        private int startingY; 
+        private int startingY; // <-- might not need that (Catherine)
         //animation attributes -- Anna
         bool down = true; //tracks last key pressed to determine which directional rest animation to use
         Texture2D idleTexture;
+
+
         //properties
         public Texture2D Idle
         {
@@ -34,7 +37,46 @@ namespace HelloWorldWH
             //initialize jumping bools
             isJumping = false;
             canJump = false;
+            velocityY = 0;
         }
+
+
+        public void Jump(GameTime gameTime, KeyboardState cKey, KeyboardState pKey)
+        {
+
+            float time = (float)gameTime.ElapsedGameTime.TotalSeconds; //maybe not needed 
+
+            //If the Space Key is being pressed
+            if (cKey.IsKeyDown(Keys.Space)) //short jump
+            {
+
+                isJumping = true; // the player is jumping
+                velocityY = -7;  // the player moves up (Note: The origin (0,0) is in the UPPER LEFT corner of the screen, which is why our velocity is a negative number)
+                canJump = false; // if a player is already jumping, should they be able to jump again?
+            }
+
+            // If the player is currently jumping
+            if (isJumping) // when you put just a boolean in the if statement, it assumes it means “isJumping == true”
+
+            {
+                velocityY += GRAVITY * time;
+
+
+                rec.Y += (int)velocityY;
+            }
+
+            
+            velocityY += GRAVITY * time;
+            rec.Y += (int)velocityY;
+
+           
+            if (rec.Y > 299)
+            {
+                isJumping = false;
+                velocityY = 0;
+                canJump = true;
+            }
+        } // end of method yEET
 
         /// <summary>
         /// Resolves collision for platforms
