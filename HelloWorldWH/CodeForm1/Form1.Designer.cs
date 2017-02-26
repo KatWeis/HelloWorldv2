@@ -30,12 +30,12 @@
         {
             this.submitButton = new System.Windows.Forms.Button();
             this.clearButton = new System.Windows.Forms.Button();
-            this.codeInputBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.hintButton = new System.Windows.Forms.Button();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.promptLabel = new System.Windows.Forms.Label();
-            this.promptTextBox = new System.Windows.Forms.TextBox();
+            this.inputCode = new System.Windows.Forms.RichTextBox();
+            this.promptText = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // submitButton
@@ -57,15 +57,6 @@
             this.clearButton.Text = "Clear";
             this.clearButton.UseVisualStyleBackColor = true;
             this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
-            // 
-            // codeInputBox
-            // 
-            this.codeInputBox.Location = new System.Drawing.Point(75, 320);
-            this.codeInputBox.Multiline = true;
-            this.codeInputBox.Name = "codeInputBox";
-            this.codeInputBox.Size = new System.Drawing.Size(902, 617);
-            this.codeInputBox.TabIndex = 2;
-            this.codeInputBox.TextChanged += new System.EventHandler(this.codeInputBox_TextChanged);
             // 
             // label1
             // 
@@ -103,26 +94,35 @@
             this.promptLabel.Text = "Prompt:";
             this.promptLabel.Click += new System.EventHandler(this.label2_Click);
             // 
-            // promptTextBox
+            // inputCode
             // 
-            this.promptTextBox.Location = new System.Drawing.Point(79, 105);
-            this.promptTextBox.Multiline = true;
-            this.promptTextBox.Name = "promptTextBox";
-            this.promptTextBox.Size = new System.Drawing.Size(672, 120);
-            this.promptTextBox.TabIndex = 7;
-            this.promptTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.inputCode.Location = new System.Drawing.Point(75, 313);
+            this.inputCode.Name = "inputCode";
+            this.inputCode.Size = new System.Drawing.Size(902, 612);
+            this.inputCode.TabIndex = 8;
+            this.inputCode.Text = "";
+            this.inputCode.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
+            // 
+            // promptText
+            // 
+            this.promptText.Location = new System.Drawing.Point(79, 98);
+            this.promptText.Name = "promptText";
+            this.promptText.Size = new System.Drawing.Size(669, 135);
+            this.promptText.TabIndex = 9;
+            this.promptText.Text = "";
+            this.promptText.TextChanged += new System.EventHandler(this.promptText_TextChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 1121);
-            this.Controls.Add(this.promptTextBox);
+            this.Controls.Add(this.promptText);
+            this.Controls.Add(this.inputCode);
             this.Controls.Add(this.promptLabel);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.hintButton);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.codeInputBox);
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.submitButton);
             this.Name = "Form1";
@@ -136,12 +136,12 @@
 
         private System.Windows.Forms.Button submitButton;
         private System.Windows.Forms.Button clearButton;
-        private System.Windows.Forms.TextBox codeInputBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button hintButton;
         private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.Label promptLabel;
-        private System.Windows.Forms.TextBox promptTextBox;
+        private System.Windows.Forms.RichTextBox inputCode;
+        private System.Windows.Forms.RichTextBox promptText;
     }
 }
 

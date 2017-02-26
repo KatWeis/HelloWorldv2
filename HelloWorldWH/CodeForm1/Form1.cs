@@ -21,10 +21,10 @@ namespace CodeForm1
         private void button1_Click(object sender, EventArgs e)
         {
             //if the length of the text is zero
-            if (codeInputBox.Text == string.Empty)
+            if (inputCode.Text == string.Empty)
             {
                 //print an error message in that text box
-                codeInputBox.Text = "Error: Please enter some text.";
+                inputCode.Text = "Error: Please enter some text.";
             }
 
             //this.Close();
@@ -49,19 +49,20 @@ namespace CodeForm1
         private void clearButton_Click(object sender, EventArgs e)
         {
             //clear the code input box
-            codeInputBox.Clear();
+            inputCode.Clear();
         }
 
         // This will allow the user to edit the text that is currently in the form 
         private void codeInputBox_TextChanged(object sender, EventArgs e)
         {
-            //Have the using be able to chnage the KeyBoard Input
+            /*//Have the using be able to chnage the KeyBoard Input
             codeInputBox.Text = "// Get the current keyboard state" + Environment.NewLine + "KeyboardState kbState = Keyboard.GetState();" + Environment.NewLine + " //Never do this: " + Environment.NewLine + " KeyboardState kbState = new KeyboardState(); " + Environment.NewLine + " //Statement will be blank! " + Environment.NewLine + " //Check for the Right Key " + Environment.NewLine + " If(kbState.IsKeyDown(Keys.Right)) " + Environment.NewLine + " { " + Environment.NewLine + " // Move the player right " + Environment.NewLine + "} " + Environment.NewLine + " //Check for the Left Key " + Environment.NewLine + " If(kbState.IsKeyDown(Keys.Left)) " + Environment.NewLine + " { " + Environment.NewLine + " // Move the player left " + Environment.NewLine + " } ";
             
             //codeInputBox.Text = " I will teach you to code maybe";
             
             //saves input to a string
             string codeInput = codeInputBox.ToString();
+            */
         }
 
         //Give Some Instructions to the user
@@ -73,13 +74,32 @@ namespace CodeForm1
         //Give Some Instructions to the user
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            promptTextBox.Text = "KEYBOARD (Right/Left) " + Environment.NewLine + " Check for left/right keyboard input. " + Environment.NewLine + " Get the current keyboard state: " + Environment.NewLine + " Use  KeyboardState kbState = Keyboard.GetState()";
+            //promptText.Text = "KEYBOARD (Right/Left) " + Environment.NewLine + " Check for left/right keyboard input. " + Environment.NewLine + " Get the current keyboard state: " + Environment.NewLine + " Use  KeyboardState kbState = Keyboard.GetState()";
         }
 
         //prompt label
         private void label2_Click(object sender, EventArgs e)
         {
             //promptLabel.ForeColor = System.Drawing.Color.DarkGreen;
+        }
+
+        //called inputChange
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            //Have the using be able to chnage the KeyBoard Input
+            inputCode.Text = "// Get the current keyboard state" + Environment.NewLine + "KeyboardState kbState = Keyboard.GetState();" + Environment.NewLine + " //Never do this: " + Environment.NewLine + " KeyboardState kbState = new KeyboardState(); " + Environment.NewLine + " //Statement will be blank! " + Environment.NewLine + " //Check for the Right Key " + Environment.NewLine + " If(kbState.IsKeyDown(Keys.Right)) " + Environment.NewLine + " { " + Environment.NewLine + " // Move the player right " + Environment.NewLine + "} " + Environment.NewLine + " //Check for the Left Key " + Environment.NewLine + " If(kbState.IsKeyDown(Keys.Left)) " + Environment.NewLine + " { " + Environment.NewLine + " // Move the player left " + Environment.NewLine + " } ";
+
+            //codeInputBox.Text = " I will teach you to code maybe";
+
+            //saves input to a string
+            string codeInput = inputCode.ToString();
+        }
+
+        //changes the prompt text 
+        private void promptText_TextChanged(object sender, EventArgs e)
+        {
+            promptText.Text = "KEYBOARD (Right/Left) " + Environment.NewLine + " Check for left/right keyboard input. " + Environment.NewLine + " Get the current keyboard state: " + Environment.NewLine + " Use  KeyboardState kbState = Keyboard.GetState()";
         }
     }
 }
