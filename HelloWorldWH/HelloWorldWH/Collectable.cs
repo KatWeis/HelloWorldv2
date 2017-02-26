@@ -14,6 +14,13 @@ namespace HelloWorldWH
         //variables
         private bool isActive;//determines if the collectable has been collected or not
 
+        //properties
+        public bool IsActive
+        {
+            get { return isActive; }
+            set { isActive = value; }
+        }
+
         //constructor
         public Collectable(Rectangle rec, Texture2D tex):base(rec, tex)
         {

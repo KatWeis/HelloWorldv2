@@ -180,7 +180,8 @@ namespace HelloWorldWH
                 {
                     if(e is Collectable)
                     {
-                        //call some method to react to colliding with the collectable
+                        Collectable temp = (Collectable)e;
+                        temp.CollisionResolution(this);
                     }
                     else
                     {
